@@ -4,11 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Northwest_Prototype.Models
 {
     [Table("Role")]
-	public class Role
+	public class Role : AuthorizeAttribute
 	{
         [Required]
         [Key]

@@ -12,11 +12,11 @@ namespace Northwest_Prototype.Models
     {
         [Key]
         [Column(Order = 0)]
-        public virtual WorkOrders WorkOrders { get; set; }
-        
+        public int WorkOrdersID2 { get; set; }
+
         [Key]
         [Column(Order = 1)]
-        public virtual Tests Tests { get; set; }
+        public int TestID2 { get; set; }
 
         public virtual WorkOrders_Samples WorkOrders_Samples { get; set; }
 
@@ -41,5 +41,15 @@ namespace Northwest_Prototype.Models
 
         [Display(Name = "Has this Test been approved by Customer?")]
         public bool Approved { get; set; }
+
+        public virtual WorkOrders WorkOrders { get; set; }
+
+        public virtual Tests Tests { get; set; }
+
+        public WorkOrders_Tests()
+        {
+            WorkOrdersID2 = WorkOrders.WorkOrderID;
+            TestID2 = Tests.TestID;
+        }
     }
 }
