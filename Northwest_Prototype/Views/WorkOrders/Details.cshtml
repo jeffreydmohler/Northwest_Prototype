@@ -1,0 +1,138 @@
+﻿@model Northwest_Prototype.Models.WorkOrders
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WorkOrders</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateDue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateDue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuotePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuotePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Billed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Billed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateReceived)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateReceived)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReceivedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReceivedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompoundWeight_Client)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompoundWeight_Client)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompoundWeight_Actual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompoundWeight_Actual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompoundMass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompoundMass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTimeConfirmation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTimeConfirmation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MTD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MTD)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WorkOrderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

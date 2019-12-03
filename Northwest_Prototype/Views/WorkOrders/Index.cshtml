@@ -1,0 +1,117 @@
+﻿@model IEnumerable<Northwest_Prototype.Models.WorkOrders>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DateDue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuotePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Discount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Billed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateReceived)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceivedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompoundWeight_Client)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompoundWeight_Actual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompoundMass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTimeConfirmation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MTD)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateDue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuotePrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Billed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateReceived)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceivedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompoundWeight_Client)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompoundWeight_Actual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompoundMass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTimeConfirmation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MTD)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.WorkOrderID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.WorkOrderID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.WorkOrderID })
+        </td>
+    </tr>
+}
+
+</table>
