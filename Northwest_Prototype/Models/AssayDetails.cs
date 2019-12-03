@@ -11,9 +11,11 @@ namespace Northwest_Prototype.Models
     public class AssayDetails
     {
         [Key]
+        [Column(Order = 0)]
         public virtual Assay Assay { get; set; }
 
         [Key]
+        [Column(Order = 1)]
         public virtual Tests Tests { get; set; }
     }
 }

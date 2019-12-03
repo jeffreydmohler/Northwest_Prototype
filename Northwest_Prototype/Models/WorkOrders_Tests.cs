@@ -11,9 +11,11 @@ namespace Northwest_Prototype.Models
     public class WorkOrders_Tests
     {
         [Key]
+        [Column(Order = 0)]
         public virtual WorkOrders WorkOrders { get; set; }
         
         [Key]
+        [Column(Order = 1)]
         public virtual Tests Tests { get; set; }
 
         public virtual WorkOrders_Samples WorkOrders_Samples { get; set; }
