@@ -12,6 +12,7 @@ namespace Northwest_Prototype.Models
     {
         [Key]
         [Required]
+        [Display(Name = "LT Number")]
         public int LT_Number { get; set; }
 
         public virtual Assay Assay { get; set; }
