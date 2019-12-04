@@ -8,8 +8,8 @@ using System.Web.Mvc;
 
 namespace Northwest_Prototype.Models
 {
-    [Table("Role")]
-	public class Role 
+    [Table("Roles")]
+	public class Roles
 	{
         [Required]
         [Key]

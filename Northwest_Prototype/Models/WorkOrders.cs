@@ -12,7 +12,7 @@ namespace Northwest_Prototype.Models
     {
         [Key]
         [Required]
-        public int WorkOrderID { get; set; }
+        public int LT_Number { get; set; }
 
         public virtual Assay Assay { get; set; }
 
@@ -24,15 +24,13 @@ namespace Northwest_Prototype.Models
 
         public virtual Results Results { get; set; }
 
-        public virtual WorkOrders_Samples WorkOrders_Samples { get; set; }
-
         [Required(ErrorMessage = "Please enter a Due Date")]
         [Display(Name = "Due Date")]
         public DateTime DateDue { get; set; }
 
         [Required(ErrorMessage = "Please enter Status of Work Order")]
         [Display(Name = "Work Order Status")]
-        public string Status { get; set; }
+        public int OrderStatus { get; set; }
 
         [Required(ErrorMessage = "Please enter the Quoted Price")]
         [Display(Name = "Quote Price")]
@@ -69,7 +67,6 @@ namespace Northwest_Prototype.Models
 
         [Display(Name = "Date Confirmation Sent")]
         public DateTime DateTimeConfirmation { get; set; }
-
         
         [Display(Name = "Maximum Tolerated Dose")]
         public decimal MTD { get; set; }

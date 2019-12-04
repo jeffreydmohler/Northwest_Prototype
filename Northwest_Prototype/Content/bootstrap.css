@@ -3453,8 +3453,10 @@ fieldset[disabled] .btn-link:focus {
   border-radius: 3px;
 }
 .btn-block {
-  display: block;
-  width: 100%;
+    display: block;
+    width: 125px;
+    border-radius: 10px;
+    color: black;
 }
 .btn-block + .btn-block {
   margin-top: 5px;
