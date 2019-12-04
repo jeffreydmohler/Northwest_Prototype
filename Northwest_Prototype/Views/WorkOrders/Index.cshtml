@@ -12,11 +12,13 @@
 
 @foreach (var item in Model)
 {
-<div>
+<div class="container1">
     @Html.DisplayFor(modelItem => item.Customer.FName) @Html.DisplayFor(modelItem => item.Customer.LName)
     @Html.DisplayNameFor(model => model.DateDue): @Html.DisplayFor(modelItem => item.DateDue)
     @Html.DisplayNameFor(model => model.WorkOrders_Samples.LT_Number): @Html.DisplayFor(modelItem => item.WorkOrders_Samples.LT_Number)
-    @Html.DisplayNameFor(model => model.Status)
+    @Html.DisplayNameFor(model => model.Status): @Html.DisplayFor(modelItem => item.Status)
+    @Html.DisplayNameFor(model => model.Employee.FName) @Html.DisplayNameFor(model => model.Employee.LName):
+    @Html.DisplayFor(modelItem => item.Employee.FName) @Html.DisplayFor(modelItem => item.Employee.LName)
 </div>
 }
 
