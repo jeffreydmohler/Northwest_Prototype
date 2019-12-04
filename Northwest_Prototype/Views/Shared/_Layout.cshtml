@@ -41,7 +41,7 @@
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-home"></i>
-                        Home
+                        Quote
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
@@ -58,21 +58,21 @@
                 <li>
                     <a href="#">
                         <i class="fas fa-briefcase"></i>
-                        About
+                        Catalogs
                     </a>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-copy"></i>
-                        Pages
+                        Work Orders
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Page 1</a>
+                            @Html.ActionLink("View Work Orders", "Index", "WorkOrders")
                         </li>
                         <li>
-                            <a href="#">Page 2</a>
+                            @Html.ActionLink("Create Work Orders", "Create", "WorkOrders")
                         </li>
                         <li>
-                            <a href="#">Page 3</a>
+                            <a href="#">something else</a>
                         </li>
                     </ul>
                 </li>
