@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace Northwest_Prototype.Models
 {
     [Table("Role")]
-	public class Role : AuthorizeAttribute
+	public class Role 
 	{
         [Required]
         [Key]

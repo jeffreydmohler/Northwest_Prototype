@@ -11,112 +11,107 @@ using Northwest_Prototype.Models;
 
 namespace Northwest_Prototype.Controllers
 {
-    public class WorkOrdersController : Controller
+    public class CustomersController : Controller
     {
         private NorthwestDevContext db = new NorthwestDevContext();
 
-        // GET: WorkOrders
-        //WorkOrders view for Sales Reps
+        // GET: Customers
         public ActionResult Index()
         {
-            List<WorkOrders> lstWorkOrders = db.workOrders.ToList();
-            lstWorkOrders.Sort((x, y) => DateTime.Compare(x.DateDue, y.DateDue));
-            return View(lstWorkOrders);
+            return View(db.customers.ToList());
         }
 
-        // GET: WorkOrders/Details/5
+        // GET: Customers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WorkOrders workOrders = db.workOrders.Find(id);
-            if (workOrders == null)
+            Customer customer = db.customers.Find(id);
+            if (customer == null)
             {
                 return HttpNotFound();
             }
-            return View(workOrders);
+            return View(customer);
         }
 
-        // GET: WorkOrders/Create
+        // GET: Customers/Create
         public ActionResult Create()
         {
-            ViewBag.Customers = db.customers.ToList();
-
             return View();
         }
 
-        // POST: WorkOrders/Create
+        // POST: Customers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "WorkOrderID,DateDue,Status,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")] WorkOrders workOrders)
+        public ActionResult Create([Bind(Include = "CustomerID,FName,LName,Address1,Address2,City,State,Zip,Country,PrimaryPhone,PrimaryEmail,BillingAddress1,BillingAddress2,BillingCity,BillingState,BillingZip,BillingCountry,CreditCard")] Customer customer)
         {
             if (ModelState.IsValid)
             {
-                db.workOrders.Add(workOrders);
+                db.customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(workOrders);
+            return View(customer);
         }
 
-        // GET: WorkOrders/Edit/5
+        // GET: Customers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WorkOrders workOrders = db.workOrders.Find(id);
-            if (workOrders == null)
+            Customer customer = db.customers.Find(id);
+            if (customer == null)
             {
                 return HttpNotFound();
             }
-            return View(workOrders);
+            return View(customer);
         }
 
-        // POST: WorkOrders/Edit/5
+        // POST: Customers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "WorkOrderID,DateDue,Status,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")] WorkOrders workOrders)
+        public ActionResult Edit([Bind(Include = "CustomerID,FName,LName,Address1,Address2,City,State,Zip,Country,PrimaryPhone,PrimaryEmail,BillingAddress1,BillingAddress2,BillingCity,BillingState,BillingZip,BillingCountry,CreditCard")] Customer customer)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(workOrders).State = EntityState.Modified;
+                db.Entry(customer).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(workOrders);
+            return View(customer);
         }
 
-        // GET: WorkOrders/Delete/5
+        // GET: Customers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WorkOrders workOrders = db.workOrders.Find(id);
-            if (workOrders == null)
+            Customer customer = db.customers.Find(id);
+            if (customer == null)
             {
                 return HttpNotFound();
             }
-            return View(workOrders);
+            return View(customer);
         }
 
-        // POST: WorkOrders/Delete/5
+        // POST: Customers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            WorkOrders workOrders = db.workOrders.Find(id);
-            db.workOrders.Remove(workOrders);
+            Customer customer = db.customers.Find(id);
+            db.customers.Remove(customer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
