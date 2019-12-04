@@ -21,7 +21,7 @@ namespace Northwest_Prototype.DAL
         public DbSet<Employee> employees { get; set; }
         public DbSet<Position> positions { get; set; }
         public DbSet<Results> results { get; set; }
-        public DbSet<Role> roles { get; set; }
+        public DbSet<Roles> roles { get; set; }
         public DbSet<Tests> tests { get; set; }
         public DbSet<Users> users { get; set; }
         public DbSet<WorkOrders> workOrders { get; set; }

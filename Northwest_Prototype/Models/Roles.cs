@@ -8,14 +8,14 @@ using System.Web.Mvc;
 
 namespace Northwest_Prototype.Models
 {
-    [Table("Role")]
-	public class Role : AuthorizeAttribute
+    [Table("Roles")]
+	public class Roles : AuthorizeAttribute
 	{
         [Required]
         [Key]
         public int RoleID { get; set; }
 
-        [Display(Name = "Role")]
+        [Display(Name = "Role Title")]
         [Required]
         [StringLength(20)]
         public string RoleTitle { get; set; }

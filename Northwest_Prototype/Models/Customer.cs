@@ -42,7 +42,7 @@ namespace Northwest_Prototype.Models
         [Required(ErrorMessage = "Please enter Zip")]
         public string Zip { get; set; }
 
-        [Required(ErrorMessage = "Please enter Zip")]
+        [Required(ErrorMessage = "Please enter Country")]
         public string Country { get; set; }
 
         [Required(ErrorMessage = "Please enter Phone Number")]
