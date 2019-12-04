@@ -134,7 +134,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.ReceivedBy, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.ReceivedBy, new SelectList(@ViewBag.Employees, "EmployeeID", "EmployeeID"))
+            @Html.DropDownListFor(model => model.ReceivedBy, new SelectList(@ViewBag.Employees, "EmployeeID", "FullName"))
             @Html.ValidationMessageFor(model => model.ReceivedBy, "", new { @class = "text-danger" })
         </div>
     </div>

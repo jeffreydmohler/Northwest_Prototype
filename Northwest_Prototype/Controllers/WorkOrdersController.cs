@@ -43,7 +43,9 @@ namespace Northwest_Prototype.Controllers
         public ActionResult Create()
         {
             ViewBag.Customers = db.customers.ToList();
-            ViewBag.Employees = db.employees.ToList();
+            ViewBag.Employees = db.Database.SqlQuery<Employee> (
+                "Select EmployeeID, FName + ', ' + LName AS 'FullName'" +
+                "From Employee").ToList();
             ViewBag.Assays = db.assays.ToList();
             ViewBag.Compounds = db.compounds.ToList();
 
