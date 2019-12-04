@@ -22,6 +22,6 @@ namespace Northwest_Prototype.Models
         public string AssayProtocol { get; set; }
 
         [Display(Name = "Estimated Days to Complete Assay")]
-        public int EstimatedTime { get; set; }
+        public int EstDayDuration { get; set; }
     }
 }

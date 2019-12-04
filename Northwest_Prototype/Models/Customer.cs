@@ -19,62 +19,62 @@ namespace Northwest_Prototype.Models
 
         [Required(ErrorMessage = "Please enter First Name")]
         [Display(Name = "First Name")]
-        public string FName { get; set; }
+        public string CustFirstName { get; set; }
 
         [Required(ErrorMessage = "Please enter Last Name")]
         [Display(Name = "Last Name")]
-        public string LName { get; set; }
+        public string CustLastName { get; set; }
 
         [Required(ErrorMessage = "Please enter Street Address")]
         [Display(Name = "Street Address")]
-        public string Address1 { get; set; }
+        public string CustAdd1 { get; set; }
 
         [Display(Name = "Apt/Suite #")]
-        public string Address2 { get; set; }
+        public string CustAdd2 { get; set; }
 
         [Required(ErrorMessage = "Please enter City")]
         [Display(Name = "City")]
-        public string City { get; set; }
+        public string CustCity { get; set; }
 
         [Required(ErrorMessage = "Please enter State")]
-        public string State { get; set; }
+        public string CustState { get; set; }
 
         [Required(ErrorMessage = "Please enter Zip")]
-        public string Zip { get; set; }
+        public string CustZip { get; set; }
 
         [Required(ErrorMessage = "Please enter Zip")]
-        public string Country { get; set; }
+        public string CustCountry { get; set; }
 
         [Required(ErrorMessage = "Please enter Phone Number")]
         [Display(Name = "Phone Number")]
         [Phone]
-        public string PrimaryPhone { get; set; }
+        public string CustPhone { get; set; }
 
         [EmailAddress]
         [Display(Name = "Email")]
         [Required(ErrorMessage = "Please enter Email")]
-        public string PrimaryEmail { get; set; }
+        public string CustEmail { get; set; }
 
         [Display(Name = "Billing Street Address")]
-        public string BillingAddress1 { get; set; }
+        public string CustBillAdd1 { get; set; }
 
         [Display(Name = "Billing Apt/Suite #")]
-        public string BillingAddress2 { get; set; }
+        public string CustBillAdd2 { get; set; }
 
         [Display(Name = "Billing City")]
-        public string BillingCity { get; set; }
+        public string CustBillCity { get; set; }
 
         [Display(Name = "Billing State")]
-        public string BillingState { get; set; }
+        public string CustBillState { get; set; }
 
         [Display(Name = "Billing Zip")]
-        public string BillingZip { get; set; }
+        public string CustBillZip { get; set; }
 
         [Display(Name = "Billing Country")]
-        public string BillingCountry { get; set; }
+        public string CustBillCountry { get; set; }
 
         [CreditCard]
         [Display(Name = "Credit Card Number")]
-        public string CreditCard { get; set; }
+        public string CustCreditCard { get; set; }
     }
 }

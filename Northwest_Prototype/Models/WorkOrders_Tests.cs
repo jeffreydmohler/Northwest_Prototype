@@ -18,9 +18,18 @@ namespace Northwest_Prototype.Models
         [Column(Order = 1)]
         public int TestID2 { get; set; }
 
-        public virtual WorkOrders_Samples WorkOrders_Samples { get; set; }
+        public virtual WorkOrders WorkOrders { get; set; }
+
+        public virtual Tests Tests { get; set; }
 
         public virtual Employee Employee { get; set; }
+
+        public virtual Results Results { get; set; }
+
+        [Column(Order = 1)]
+        [Required(ErrorMessage = "Please enter Compound Sequence Code")]
+        [Display(Name = "Compound Sequence Code")]
+        public int CompoundSequenceCode { get; set; }
 
         [Required(ErrorMessage = "Please indicate if test is required in assay")]
         [Display(Name = "Is this Test required in Assay?")]
@@ -42,13 +51,13 @@ namespace Northwest_Prototype.Models
         [Display(Name = "Has this Test been approved by Customer?")]
         public bool Approved { get; set; }
 
-        public virtual WorkOrders WorkOrders { get; set; }
 
-        public virtual Tests Tests { get; set; }
+
+
 
         public WorkOrders_Tests()
         {
-            WorkOrdersID2 = WorkOrders.WorkOrderID;
+            WorkOrdersID2 = WorkOrders.LT_Number;
             TestID2 = Tests.TestID;
         }
     }

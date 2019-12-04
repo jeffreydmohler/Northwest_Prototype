@@ -44,7 +44,7 @@ namespace Northwest_Prototype.Controllers
         {
             ViewBag.Customers = db.customers.ToList();
             ViewBag.Employees = db.Database.SqlQuery<Employee> (
-                "Select EmployeeID, FName + ', ' + LName AS 'FullName'" +
+                "Select EmployeeID, EmpFirstName + ', ' + EmpLastName AS 'FullName'" +
                 "From Employee").ToList();
             ViewBag.Assays = db.assays.ToList();
             ViewBag.Compounds = db.compounds.ToList();
@@ -57,7 +57,7 @@ namespace Northwest_Prototype.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "WorkOrderID,DateDue,Status,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")] WorkOrders workOrders)
+        public ActionResult Create([Bind(Include = "LT_Number,DateDue,Status,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")] WorkOrders workOrders)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace Northwest_Prototype.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "WorkOrderID,DateDue,Status,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")] WorkOrders workOrders)
+        public ActionResult Edit([Bind(Include = "LT_Number,DateDue,Status,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")] WorkOrders workOrders)
         {
             if (ModelState.IsValid)
             {
