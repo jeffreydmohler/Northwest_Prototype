@@ -67,7 +67,7 @@ namespace Northwest_Prototype.Models
         [Display(Name = "Compound Mass")]
         public decimal CompoundMass { get; set; }
 
-        [Display(Name = "Time Confirmation Sent")]
+        [Display(Name = "Date Confirmation Sent")]
         public DateTime DateTimeConfirmation { get; set; }
 
         

@@ -13,8 +13,9 @@
 @foreach (var item in Model)
 {
 <div>
-    @Html.DisplayFor(model => model.Customer.FName) 
+    @Html.DisplayFor(modelItem => item.Customer.FName) @Html.DisplayFor(modelItem => item.Customer.LName)
     @Html.DisplayNameFor(model => model.DateDue): @Html.DisplayFor(modelItem => item.DateDue)
+    @Html.DisplayNameFor(model => model.WorkOrders_Samples.LT_Number): @Html.DisplayFor(modelItem => item.WorkOrders_Samples.LT_Number)
     @Html.DisplayNameFor(model => model.Status)
 </div>
 }
