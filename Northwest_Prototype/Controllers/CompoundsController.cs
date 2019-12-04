@@ -11,108 +11,107 @@ using Northwest_Prototype.Models;
 
 namespace Northwest_Prototype.Controllers
 {
-    public class EmployeesController : Controller
+    public class CompoundsController : Controller
     {
         private NorthwestDevContext db = new NorthwestDevContext();
 
-        // GET: Employees
+        // GET: Compounds
         public ActionResult Index()
         {
-            return View(db.employees.ToList());
+            return View(db.compounds.ToList());
         }
 
-        // GET: Employees/Details/5
+        // GET: Compounds/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.employees.Find(id);
-            if (employee == null)
+            Compound compound = db.compounds.Find(id);
+            if (compound == null)
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return View(compound);
         }
 
-        // GET: Employees/Create
+        // GET: Compounds/Create
         public ActionResult Create()
         {
-            ViewBag.Position = db.positions.ToList();
             return View();
         }
 
-        // POST: Employees/Create
+        // POST: Compounds/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeID,FName,LName,Address1,Address2,City,State,Zip,Country,PrimaryPhone,PrimaryEmail")] Employee employee)
+        public ActionResult Create([Bind(Include = "CompoundID,CompoundDesc")] Compound compound)
         {
             if (ModelState.IsValid)
             {
-                db.employees.Add(employee);
+                db.compounds.Add(compound);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(employee);
+            return View(compound);
         }
 
-        // GET: Employees/Edit/5
+        // GET: Compounds/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.employees.Find(id);
-            if (employee == null)
+            Compound compound = db.compounds.Find(id);
+            if (compound == null)
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return View(compound);
         }
 
-        // POST: Employees/Edit/5
+        // POST: Compounds/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeID,FName,LName,Address1,Address2,City,State,Zip,Country,PrimaryPhone,PrimaryEmail")] Employee employee)
+        public ActionResult Edit([Bind(Include = "CompoundID,CompoundDesc")] Compound compound)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(employee).State = EntityState.Modified;
+                db.Entry(compound).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(employee);
+            return View(compound);
         }
 
-        // GET: Employees/Delete/5
+        // GET: Compounds/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.employees.Find(id);
-            if (employee == null)
+            Compound compound = db.compounds.Find(id);
+            if (compound == null)
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return View(compound);
         }
 
-        // POST: Employees/Delete/5
+        // POST: Compounds/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Employee employee = db.employees.Find(id);
-            db.employees.Remove(employee);
+            Compound compound = db.compounds.Find(id);
+            db.compounds.Remove(compound);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
