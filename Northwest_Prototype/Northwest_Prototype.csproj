@@ -199,8 +199,16 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Pictures\blue building.jpg" />
+    <Content Include="Content\Pictures\Building.jpg" />
     <Content Include="Content\Pictures\Chemicals.jfif" />
+    <Content Include="Content\Pictures\chemistry beaker with drop.jpg" />
+    <Content Include="Content\Pictures\hand holding beaker.jpeg" />
+    <Content Include="Content\Pictures\laboratory.jpg" />
+    <Content Include="Content\Pictures\large blue test tube.jpg" />
+    <Content Include="Content\Pictures\Microscope.jpg" />
     <Content Include="Content\Pictures\photo-1532094349884-543bc11b234d.jpeg" />
+    <Content Include="Content\Pictures\TestTube.jpeg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
