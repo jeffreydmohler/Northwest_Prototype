@@ -39,7 +39,6 @@ namespace Northwest_Prototype.Controllers
         // GET: Employees/Create
         public ActionResult Create()
         {
-            ViewBag.Position = db.positions.ToList();
             return View();
         }
 
@@ -48,7 +47,7 @@ namespace Northwest_Prototype.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeID,FName,LName,Address1,Address2,City,State,Zip,Country,PrimaryPhone,PrimaryEmail")] Employee employee)
+        public ActionResult Create([Bind(Include = "EmployeeID,EmpFirstName,EmpLastName,EmpAddress1,EmpAddress2,EmpCity,EmpState,EmpZip,EmpCountry,EmpPhone,EmpEmail")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +79,7 @@ namespace Northwest_Prototype.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeID,FName,LName,Address1,Address2,City,State,Zip,Country,PrimaryPhone,PrimaryEmail")] Employee employee)
+        public ActionResult Edit([Bind(Include = "EmployeeID,EmpFirstName,EmpLastName,EmpAddress1,EmpAddress2,EmpCity,EmpState,EmpZip,EmpCountry,EmpPhone,EmpEmail")] Employee employee)
         {
             if (ModelState.IsValid)
             {

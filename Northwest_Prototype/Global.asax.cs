@@ -18,7 +18,7 @@ namespace Northwest_Prototype
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Database.SetInitializer<NorthwestDevContext>(null);
+            Database.SetInitializer<NorthwestDevContext>(new DropCreateDatabaseIfModelChanges<NorthwestDevContext>());
         }
     }
 }

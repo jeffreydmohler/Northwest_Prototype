@@ -14,34 +14,34 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FName)
+            @Html.DisplayNameFor(model => model.EmpFirstName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LName)
+            @Html.DisplayNameFor(model => model.EmpLastName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Address1)
+            @Html.DisplayNameFor(model => model.EmpAddress1)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Address2)
+            @Html.DisplayNameFor(model => model.EmpAddress2)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.City)
+            @Html.DisplayNameFor(model => model.EmpCity)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.State)
+            @Html.DisplayNameFor(model => model.EmpState)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Zip)
+            @Html.DisplayNameFor(model => model.EmpZip)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Country)
+            @Html.DisplayNameFor(model => model.EmpCountry)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PrimaryPhone)
+            @Html.DisplayNameFor(model => model.EmpPhone)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PrimaryEmail)
+            @Html.DisplayNameFor(model => model.EmpEmail)
         </th>
         <th></th>
     </tr>
@@ -49,34 +49,34 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.FName)
+            @Html.DisplayFor(modelItem => item.EmpFirstName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LName)
+            @Html.DisplayFor(modelItem => item.EmpLastName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Address1)
+            @Html.DisplayFor(modelItem => item.EmpAddress1)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Address2)
+            @Html.DisplayFor(modelItem => item.EmpAddress2)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.City)
+            @Html.DisplayFor(modelItem => item.EmpCity)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.State)
+            @Html.DisplayFor(modelItem => item.EmpState)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Zip)
+            @Html.DisplayFor(modelItem => item.EmpZip)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Country)
+            @Html.DisplayFor(modelItem => item.EmpCountry)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PrimaryPhone)
+            @Html.DisplayFor(modelItem => item.EmpPhone)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PrimaryEmail)
+            @Html.DisplayFor(modelItem => item.EmpEmail)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeID }) |

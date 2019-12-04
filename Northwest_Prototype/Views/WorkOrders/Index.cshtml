@@ -12,7 +12,7 @@
 
 @foreach (var item in Model)
 {
-<div class="container1" onclick="location.href='@Url.Action("Tests", new { iCode = item.WorkOrderID })'">
+<div class="container1" onclick="location.href='@Url.Action("Tests", new { iCode = item.LT_Number })'">
     <span style="font-size:20px; font-weight: bold;">
         @*@Html.DisplayFor(modelItem => item.Customer.FName) @Html.DisplayFor(modelItem => item.Customer.LName)*@
         Jeffrey Mohler
@@ -21,18 +21,18 @@
         @{ var parameter = item.DateDue.ToShortDateString();}
         @Html.DisplayNameFor(model => model.DateDue): @Html.DisplayFor(modelItem => parameter)
     </span><br />
-    @Html.DisplayNameFor(model => model.WorkOrders_Samples.LT_Number): @Html.DisplayFor(modelItem => item.WorkOrders_Samples.LT_Number)
+    @Html.DisplayNameFor(model => model.LT_Number): @Html.DisplayFor(modelItem => item.LT_Number)
    <span class="col-lg-offset-7">
     @Html.DisplayNameFor(model => model.QuotePrice): $@Html.DisplayFor(modelItem => item.QuotePrice)
     </span><br />
     @Html.DisplayNameFor(model => model.Assay.AssayName): @Html.DisplayFor(modelItem => item.Assay.AssayName)
     <span class="col-sm-offset-5">
-        @Html.DisplayNameFor(model => model.Status): @Html.DisplayFor(modelItem => item.Status)
+        @Html.DisplayNameFor(model => model.OrderStatus): @Html.DisplayFor(modelItem => item.OrderStatus)
     </span><br />
     @*@Html.DisplayNameFor(model => model.Employee.FName) @Html.DisplayNameFor(model => model.Employee.LName):
         @Html.DisplayFor(modelItem => item.Employee.FName) @Html.DisplayFor(modelItem => item.Employee.LName)*@
     Employee: Calen Johnson
-    <button class="btn-block" onclick="location.href='@Url.Action("Tests", new { iCode = item.WorkOrderID })'">View Work Order</button>
+    <button class="btn-block" onclick="location.href='@Url.Action("Tests", new { iCode = item.LT_Number })'">View Work Order</button>
 </div>
 }
 
