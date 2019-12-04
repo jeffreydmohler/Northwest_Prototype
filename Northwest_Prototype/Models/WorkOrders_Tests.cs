@@ -11,12 +11,9 @@ namespace Northwest_Prototype.Models
     public class WorkOrders_Tests
     {
         [Key]
-        [Column(Order = 0)]
-        public int WorkOrdersID2 { get; set; }
-
-        [Key]
-        [Column(Order = 1)]
-        public int TestID2 { get; set; }
+        [Required(ErrorMessage = "Please enter Compound Sequence Code")]
+        [Display(Name = "Compound Sequence Code")]
+        public int CompoundSequenceCode { get; set; }
 
         public virtual WorkOrders WorkOrders { get; set; }
 
@@ -25,11 +22,6 @@ namespace Northwest_Prototype.Models
         public virtual Employee Employee { get; set; }
 
         public virtual Results Results { get; set; }
-
-        [Column(Order = 1)]
-        [Required(ErrorMessage = "Please enter Compound Sequence Code")]
-        [Display(Name = "Compound Sequence Code")]
-        public int CompoundSequenceCode { get; set; }
 
         [Required(ErrorMessage = "Please indicate if test is required in assay")]
         [Display(Name = "Is this Test required in Assay?")]
@@ -50,15 +42,5 @@ namespace Northwest_Prototype.Models
 
         [Display(Name = "Has this Test been approved by Customer?")]
         public bool Approved { get; set; }
-
-
-
-
-
-        public WorkOrders_Tests()
-        {
-            WorkOrdersID2 = WorkOrders.LT_Number;
-            TestID2 = Tests.TestID;
-        }
     }
 }

@@ -17,7 +17,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Northwest Labs", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -34,7 +34,7 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>Menu</h3>
-                <strong>BS</strong>
+                @*<strong>BS</strong>*@
             </div>
 
             <ul class="list-unstyled components">
@@ -51,7 +51,7 @@
                             @Html.ActionLink("Create Work Orders", "Create", "WorkOrders")
                         </li>
                         <li>
-                            <a href="#">Provide a Quote</a>
+                            @Html.ActionLink("Provide a Quote", "Quote", "WorkOrders")
                         </li>
                     </ul>
                 </li>
@@ -62,13 +62,13 @@
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Assays</a>
+                               @Html.ActionLink("Assays", "Index", "Assays")
                         </li>
                         <li>
-                            <a href="#">Tests</a>
+                            @Html.ActionLink("Tests", "Index", "Tests")
                         </li>
                         <li>
-                            <a href="#">Compounds</a>
+                            @Html.ActionLink("Compounds", "Index", "Compounds")
                         </li>
                     </ul>
                 </li>
@@ -79,13 +79,10 @@
                     </a>
                     <ul class="collapse list-unstyled" id="CustomersSubmenu">
                         <li>
-                            <a href="#">View Customers</a>
+                            @Html.ActionLink("View Customers", "Index", "Customers")
                         </li>
                         <li>
-                            <a href="#">Add a Customer</a>
-                        </li>
-                        <li>
-                            <a href="#">sjfjalks</a>
+                            @Html.ActionLink("Add a Customer", "Create", "Customers")
                         </li>
                     </ul>
                 </li>

@@ -47,7 +47,7 @@ namespace Northwest_Prototype.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerID,FName,LName,Address1,Address2,City,State,Zip,Country,PrimaryPhone,PrimaryEmail,BillingAddress1,BillingAddress2,BillingCity,BillingState,BillingZip,BillingCountry,CreditCard")] Customer customer)
+        public ActionResult Create([Bind(Include = "CustomerID,CustFirstName,CustLastName,CustAdd1,CustAdd2,CustCity,CustState,CustZip,CustCountry,CustPhone,CustEmail,CustBillAdd1,CustBillAdd2,CustBillCity,CustBillState,CustBillZip,CustBillCountry,CustCreditCard")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Northwest_Prototype.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerID,FName,LName,Address1,Address2,City,State,Zip,Country,PrimaryPhone,PrimaryEmail,BillingAddress1,BillingAddress2,BillingCity,BillingState,BillingZip,BillingCountry,CreditCard")] Customer customer)
+        public ActionResult Edit([Bind(Include = "CustomerID,CustFirstName,CustLastName,CustAdd1,CustAdd2,CustCity,CustState,CustZip,CustCountry,CustPhone,CustEmail,CustBillAdd1,CustBillAdd2,CustBillCity,CustBillState,CustBillZip,CustBillCountry,CustCreditCard")] Customer customer)
         {
             if (ModelState.IsValid)
             {
