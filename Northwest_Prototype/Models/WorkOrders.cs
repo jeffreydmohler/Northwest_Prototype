@@ -69,7 +69,6 @@ namespace Northwest_Prototype.Models
 
         [Display(Name = "Date Confirmation Sent")]
         public DateTime DateTimeConfirmation { get; set; }
-
         
         [Display(Name = "Maximum Tolerated Dose")]
         public decimal MTD { get; set; }
