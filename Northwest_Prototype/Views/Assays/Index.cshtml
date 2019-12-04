@@ -20,6 +20,9 @@
         <th>
             @Html.DisplayNameFor(model => model.EstimatedTime)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tests)
+        </th>
         <th></th>
     </tr>
 
@@ -35,9 +38,12 @@
             @Html.DisplayFor(modelItem => item.EstimatedTime)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AssayID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AssayID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AssayID })
+            @Html.ListBox("AssayID", new SelectList(item.Tests, "TestID", "TestName"))
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.AssayID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.AssayID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.AssayID })
         </td>
     </tr>
 }

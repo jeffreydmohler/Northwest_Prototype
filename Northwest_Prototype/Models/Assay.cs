@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
-
 namespace Northwest_Prototype.Models
 {
     [Table("Assay")]
     public class Assay
     {
+        public Assay()
+        {
+           this.Tests = new HashSet<Tests>();
+        }
+
         [Key]
         [Required]
         public string AssayID { get; set; }
@@ -23,5 +25,8 @@ namespace Northwest_Prototype.Models
 
         [Display(Name = "Estimated Days to Complete Assay")]
         public int EstimatedTime { get; set; }
+
+       
+        public virtual ICollection<Tests> Tests { get; set; }
     }
 }

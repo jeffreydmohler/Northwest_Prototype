@@ -76,7 +76,31 @@
                         </li>
                     </ul>
                 </li>
-            </ul>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("Admin"))
+
+                    {
+                        <li class="active">
+                            <a href="#Stuff" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                <i class="fas fa-home"></i>
+                                Quote
+                            </a>
+                            <ul class="collapse list-unstyled" id="Stuff">
+                                <li>
+                                    <a href="#">Home 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Home 2</a>
+                                </li>
+                                <li>
+                                    <a href="#">Home 3</a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                }
+      
 
         </nav>
         <div  id="content" class="container body-content">

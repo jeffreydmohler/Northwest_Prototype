@@ -199,6 +199,7 @@
     <Compile Include="Models\WorkOrders_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\TestViewMode.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />

@@ -10,6 +10,10 @@ namespace Northwest_Prototype.Models
     [Table("Tests")]
     public class Tests
     {
+        public Tests ()
+        {
+            this.Assays = new HashSet<Assay>();
+        }
         [Key]
         [Required]
         public int TestID { get; set; }
@@ -25,5 +29,8 @@ namespace Northwest_Prototype.Models
         [Required(ErrorMessage = "Please Enter a Price for Test")]
         [Display(Name = "Test Price")]
         public decimal TestPrice { get; set; }
+
+        public virtual ICollection<Assay> Assays { get; set; }
+
     }
 }
