@@ -18,7 +18,7 @@ namespace Northwest_Prototype.Models
         public string PositionTitle { get; set; }
 
         [Display(Name = "Salary")]
-        public double Salary { get; set; }
+        public decimal Salary { get; set; }
 
         [Display(Name = "Wage or Hourly Rate")]
         public decimal Wage { get; set; }
