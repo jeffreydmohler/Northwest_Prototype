@@ -1,0 +1,42 @@
+﻿@model Northwest_Prototype.Models.Tests
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tests</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TestName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TestID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

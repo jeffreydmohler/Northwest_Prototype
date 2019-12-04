@@ -11,108 +11,107 @@ using Northwest_Prototype.Models;
 
 namespace Northwest_Prototype.Controllers
 {
-    public class EmployeesController : Controller
+    public class AssaysController : Controller
     {
         private NorthwestDevContext db = new NorthwestDevContext();
 
-        // GET: Employees
+        // GET: Assays
         public ActionResult Index()
         {
-            return View(db.employees.ToList());
+            return View(db.assays.ToList());
         }
 
-        // GET: Employees/Details/5
-        public ActionResult Details(int? id)
+        // GET: Assays/Details/5
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.employees.Find(id);
-            if (employee == null)
+            Assay assay = db.assays.Find(id);
+            if (assay == null)
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return View(assay);
         }
 
-        // GET: Employees/Create
+        // GET: Assays/Create
         public ActionResult Create()
         {
-            ViewBag.Position = db.positions.ToList();
             return View();
         }
 
-        // POST: Employees/Create
+        // POST: Assays/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeID,FName,LName,Address1,Address2,City,State,Zip,Country,PrimaryPhone,PrimaryEmail")] Employee employee)
+        public ActionResult Create([Bind(Include = "AssayID,AssayName,AssayProtocol,EstimatedTime")] Assay assay)
         {
             if (ModelState.IsValid)
             {
-                db.employees.Add(employee);
+                db.assays.Add(assay);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(employee);
+            return View(assay);
         }
 
-        // GET: Employees/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Assays/Edit/5
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.employees.Find(id);
-            if (employee == null)
+            Assay assay = db.assays.Find(id);
+            if (assay == null)
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return View(assay);
         }
 
-        // POST: Employees/Edit/5
+        // POST: Assays/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeID,FName,LName,Address1,Address2,City,State,Zip,Country,PrimaryPhone,PrimaryEmail")] Employee employee)
+        public ActionResult Edit([Bind(Include = "AssayID,AssayName,AssayProtocol,EstimatedTime")] Assay assay)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(employee).State = EntityState.Modified;
+                db.Entry(assay).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(employee);
+            return View(assay);
         }
 
-        // GET: Employees/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Assays/Delete/5
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.employees.Find(id);
-            if (employee == null)
+            Assay assay = db.assays.Find(id);
+            if (assay == null)
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return View(assay);
         }
 
-        // POST: Employees/Delete/5
+        // POST: Assays/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            Employee employee = db.employees.Find(id);
-            db.employees.Remove(employee);
+            Assay assay = db.assays.Find(id);
+            db.assays.Remove(assay);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

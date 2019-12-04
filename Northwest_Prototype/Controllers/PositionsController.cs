@@ -11,108 +11,107 @@ using Northwest_Prototype.Models;
 
 namespace Northwest_Prototype.Controllers
 {
-    public class EmployeesController : Controller
+    public class PositionsController : Controller
     {
         private NorthwestDevContext db = new NorthwestDevContext();
 
-        // GET: Employees
+        // GET: Positions
         public ActionResult Index()
         {
-            return View(db.employees.ToList());
+            return View(db.positions.ToList());
         }
 
-        // GET: Employees/Details/5
+        // GET: Positions/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.employees.Find(id);
-            if (employee == null)
+            Position position = db.positions.Find(id);
+            if (position == null)
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return View(position);
         }
 
-        // GET: Employees/Create
+        // GET: Positions/Create
         public ActionResult Create()
         {
-            ViewBag.Position = db.positions.ToList();
             return View();
         }
 
-        // POST: Employees/Create
+        // POST: Positions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeID,FName,LName,Address1,Address2,City,State,Zip,Country,PrimaryPhone,PrimaryEmail")] Employee employee)
+        public ActionResult Create([Bind(Include = "PositionID,PositionTitle,Salary,Wage")] Position position)
         {
             if (ModelState.IsValid)
             {
-                db.employees.Add(employee);
+                db.positions.Add(position);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(employee);
+            return View(position);
         }
 
-        // GET: Employees/Edit/5
+        // GET: Positions/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.employees.Find(id);
-            if (employee == null)
+            Position position = db.positions.Find(id);
+            if (position == null)
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return View(position);
         }
 
-        // POST: Employees/Edit/5
+        // POST: Positions/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeID,FName,LName,Address1,Address2,City,State,Zip,Country,PrimaryPhone,PrimaryEmail")] Employee employee)
+        public ActionResult Edit([Bind(Include = "PositionID,PositionTitle,Salary,Wage")] Position position)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(employee).State = EntityState.Modified;
+                db.Entry(position).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(employee);
+            return View(position);
         }
 
-        // GET: Employees/Delete/5
+        // GET: Positions/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.employees.Find(id);
-            if (employee == null)
+            Position position = db.positions.Find(id);
+            if (position == null)
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return View(position);
         }
 
-        // POST: Employees/Delete/5
+        // POST: Positions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Employee employee = db.employees.Find(id);
-            db.employees.Remove(employee);
+            Position position = db.positions.Find(id);
+            db.positions.Remove(position);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

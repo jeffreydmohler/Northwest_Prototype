@@ -168,10 +168,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AssaysController.cs" />
+    <Compile Include="Controllers\CompoundsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PositionsController.cs" />
+    <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Controllers\WorkOrdersController.cs" />
     <Compile Include="DAL\NorthwestDevContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -278,6 +282,26 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Tests\Create.cshtml" />
+    <Content Include="Views\Tests\Delete.cshtml" />
+    <Content Include="Views\Tests\Details.cshtml" />
+    <Content Include="Views\Tests\Edit.cshtml" />
+    <Content Include="Views\Tests\Index.cshtml" />
+    <Content Include="Views\Assays\Create.cshtml" />
+    <Content Include="Views\Assays\Delete.cshtml" />
+    <Content Include="Views\Assays\Details.cshtml" />
+    <Content Include="Views\Assays\Edit.cshtml" />
+    <Content Include="Views\Assays\Index.cshtml" />
+    <Content Include="Views\Positions\Create.cshtml" />
+    <Content Include="Views\Positions\Delete.cshtml" />
+    <Content Include="Views\Positions\Details.cshtml" />
+    <Content Include="Views\Positions\Edit.cshtml" />
+    <Content Include="Views\Positions\Index.cshtml" />
+    <Content Include="Views\Compounds\Create.cshtml" />
+    <Content Include="Views\Compounds\Delete.cshtml" />
+    <Content Include="Views\Compounds\Details.cshtml" />
+    <Content Include="Views\Compounds\Edit.cshtml" />
+    <Content Include="Views\Compounds\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
