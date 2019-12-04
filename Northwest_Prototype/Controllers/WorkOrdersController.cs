@@ -55,14 +55,15 @@ namespace Northwest_Prototype.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "WorkOrderID, Customer, Assay, Employee, Compound, DateDue,Status,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")] WorkOrders workOrders)
+        public ActionResult Create([Bind(Include = "LT_Number, DateDue,OrderStatus,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")] WorkOrders workOrders)
         { //[Bind(Include = "WorkOrderID, Customer.CustomerID, DateDue,Status,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")]
+            ///* Customer, Assay, Employee, Compound,
             workOrders.Customer = db.customers.Find(workOrders.Customer.CustomerID);
             workOrders.Assay = db.assays.Find(workOrders.Assay.AssayID);
             workOrders.Employee = db.employees.Find(workOrders.Employee.EmployeeID);
             workOrders.Compound = db.compounds.Find(workOrders.Compound.CompoundID);
 
-            if (TryValidateModel(workOrders))
+            if (ModelState.IsValid)
             {
                 
                 db.workOrders.Add(workOrders);
@@ -75,6 +76,11 @@ namespace Northwest_Prototype.Controllers
             ViewBag.Compounds = db.compounds.ToList();
 
             return View(workOrders);
+        }
+
+        public ActionResult Tests(int iCode)
+        {
+            return View();
         }
 
         // GET: WorkOrders/Edit/5

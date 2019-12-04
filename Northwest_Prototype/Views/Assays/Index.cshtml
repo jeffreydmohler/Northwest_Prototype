@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.AssayProtocol)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EstimatedTime)
+            @Html.DisplayNameFor(model => model.EstDayDuration)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Tests)
@@ -35,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.AssayProtocol)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EstimatedTime)
+            @Html.DisplayFor(modelItem => item.EstDayDuration)
         </td>
         <td>
             @Html.ListBox("AssayID", new SelectList(item.Tests, "TestID", "TestName"))

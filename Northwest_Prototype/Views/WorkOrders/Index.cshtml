@@ -14,7 +14,7 @@
 {
 <div class="container1" onclick="location.href='@Url.Action("Tests", new { iCode = item.LT_Number })'">
     <span style="font-size:20px; font-weight: bold;">
-        @*@Html.DisplayFor(modelItem => item.Customer.FName) @Html.DisplayFor(modelItem => item.Customer.LName)*@
+        @Html.DisplayFor(modelItem => item.Customer.CustFirstName) @Html.DisplayFor(modelItem => item.Customer.CustLastName)
         Jeffrey Mohler
     </span>
     <span class="col-lg-offset-8">
