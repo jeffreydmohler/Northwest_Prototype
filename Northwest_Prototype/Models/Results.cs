@@ -13,7 +13,9 @@ namespace Northwest_Prototype.Models
         [Key]
         public int ResultsID { get; set; }
 
-        public string QuantResult { get; set; }
+        public string QuantResultRaw { get; set; }
+
+        public string QuantResultSum { get; set; }
 
         public string QualResult { get; set; }
     }

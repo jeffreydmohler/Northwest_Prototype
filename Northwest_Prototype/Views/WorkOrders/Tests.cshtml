@@ -1,7 +1,108 @@
-﻿
+﻿@model Tuple<Northwest_Prototype.Models.WorkOrders, IEnumerable<Northwest_Prototype.Models.WorkOrders_Tests>>
+@using Microsoft.AspNet.Identity
+
 @{
-    ViewBag.Title = "Tests";
+    ViewBag.Title = "ShowTests";
 }
 
-<h2>Tests</h2>
 
+<div id="homejumbo" class="jumbotron">
+    <div class="container h-100">
+        <div style="color:#FFFFF0">
+            <h1>@Html.DisplayFor(model => model.Item1.Customer.CustFirstName) @Html.DisplayFor(model => model.Item1.Customer.CustLastName)</h1>
+            <div style="font-size: 17px; text-align: left">
+                @{ var parameter = Model.Item1.DateDue.ToShortDateString();}
+                @Html.DisplayNameFor(model => model.Item1.DateDue): @Html.DisplayFor(model => parameter) <br />
+                @Html.DisplayNameFor(model => model.Item1.Assay.AssayName): @Html.DisplayFor(model => model.Item1.Assay.AssayName)
+                @Html.DisplayNameFor(model => model.Item1.Assay.EstDayDuration): @Html.DisplayFor(model => model.Item1.Assay.EstDayDuration)
+                @Html.DisplayNameFor(model => model.Item1.OrderStatus): @Html.DisplayFor(model => model.Item1.OrderStatus)) <br />
+                @Html.DisplayNameFor(model => model.Item1.QuotePrice): @Html.DisplayFor(model => model.Item1.QuotePrice)  <br />
+                @Html.DisplayNameFor(model => model.Item1.Discount) @Html.DisplayFor(model => model.Item1.Discount)
+                @Html.DisplayNameFor(model => model.Item1.Billed): @Html.DisplayFor(model => model.Item1.Billed)
+                @Html.DisplayNameFor(model => model.Item1.Paid): @Html.DisplayFor(model => model.Item1.Paid)
+                @Html.DisplayNameFor(model => model.Item1.Comments): @Html.DisplayFor(model => model.Item1.Comments)
+                @Html.DisplayNameFor(model => model.Item1.Quantity): @Html.DisplayFor(model => model.Item1.Quantity)
+                @Html.DisplayNameFor(model => model.Item1.DateReceived): @Html.DisplayFor(model => model.Item1.DateReceived)
+                @Html.DisplayNameFor(model => model.Item1.ReceivedBy): @Html.DisplayFor(model => model.Item1.ReceivedBy)
+                @Html.DisplayNameFor(model => model.Item1.CompoundWeight_Client): @Html.DisplayFor(model => model.Item1.CompoundWeight_Client)
+                @Html.DisplayNameFor(model => model.Item1.CompoundWeight_Actual): @Html.DisplayFor(model => model.Item1.CompoundWeight_Actual)
+                @Html.DisplayNameFor(model => model.Item1.CompoundMass): @Html.DisplayFor(model => model.Item1.CompoundMass)
+                @Html.DisplayNameFor(model => model.Item1.DateTimeConfirmation): @Html.DisplayFor(model => model.Item1.DateTimeConfirmation)
+                @Html.DisplayNameFor(model => model.Item1.MTD): @Html.DisplayFor(model => model.Item1.MTD)
+                @Html.DisplayNameFor(model => model.Item1.Results.QualResult): @Html.DisplayFor(model => model.Item1.Results.QualResult)
+                @Html.DisplayNameFor(model => model.Item1.Results.QuantResultRaw): @Html.DisplayFor(model => model.Item1.Results.QuantResultRaw)
+                @Html.DisplayNameFor(model => model.Item1.Results.QuantResultSum): @Html.DisplayFor(model => model.Item1.Results.QuantResultSum)
+                @Html.DisplayNameFor(model => model.Item1.Compound.CompoundDesc): @Html.DisplayFor(model => model.Item1.Compound.CompoundDesc)
+                @Html.DisplayNameFor(model => model.Item1.Employee.EmpFirstName): @Html.DisplayFor(model => model.Item1.Employee.EmpFirstName)
+                @Html.DisplayNameFor(model => model.Item1.Employee.EmpLastName): @Html.DisplayFor(model => model.Item1.Employee.EmpLastName)
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+
+</div>
+<h2>Reviews </h2>
+<div class="col-sm-2 col-sm-offset-10 " style="text-align: right"><button class="btn-block" style="width: 175px;" onclick="location.href='@Url.Action("AddTest", new { iCode = Model.Item1.LT_Number })'">Add a Test</button></div>
+<br />
+
+@foreach (var item in Model.Item2)
+{
+        <div class="container1">
+
+
+            <br />
+            <div class="reviewtext1 review1">
+                @Html.DisplayNameFor(modelItem => item.Tests.TestName) <strong> @Html.DisplayFor(modelItem => item.Tests.TestName)</strong>
+                <br />
+                @Html.DisplayNameFor(modelItem => item.CompoundSequenceCode) <strong> @Html.DisplayFor(modelItem => item.CompoundSequenceCode)</strong>
+                <br />
+                @Html.DisplayNameFor(modelItem => item.DateScheduled) <strong> @Html.DisplayFor(modelItem => item.DateScheduled)</strong>
+                <br />
+                @Html.DisplayNameFor(modelItem => item.DateCompleted) <strong> @Html.DisplayFor(modelItem => item.DateCompleted)</strong>
+                <br />
+                @Html.DisplayNameFor(modelItem => item.Required) <strong> @Html.DisplayFor(modelItem => item.Required)</strong>
+                <br />
+                @Html.DisplayNameFor(modelItem => item.RerunNeeded) <strong> @Html.DisplayFor(modelItem => item.RerunNeeded)</strong>
+                <br />
+                @Html.DisplayNameFor(modelItem => item.AdditionalTests) <strong> @Html.DisplayFor(modelItem => item.AdditionalTests)</strong>
+                <br />
+                @Html.DisplayNameFor(modelItem => item.Approved) <strong> @Html.DisplayFor(modelItem => item.Approved)</strong>
+                <br />
+                <br /><br />
+            </div>
+            <div class="review2">
+                @*<p class="col-lg-offset-1" style="font-size: 15px;">"@Html.DisplayFor(modelItem => item.ReviewDesc)" </p>
+                </div>
+
+                    <div class="col-sm-offset-1">*@
+
+                <table class="col-sm-2 col-sm-offset-8 ">
+                    <tr>
+                        <td>
+                            <button class="btn-block" onclick="location.href='@Url.Action("DeleteTest", new { iCode = item.CompoundSequenceCode })'">Delete</button>
+                        </td>
+                        <td>
+                            <button class="btn-block" onclick="location.href='@Url.Action("EditTest", new { iCode = item.CompoundSequenceCode })'">Edit</button>
+                        </td>
+
+
+                    </tr>
+                </table>
+
+                </div>
+                @*<span class="reviewtext2">
+                    @{ var parameter = item.ReviewDate.ToShortDateString();}
+                    @Html.DisplayFor(modelItem => parameter)
+
+                </span>
+                </div>
+
+                </div>
+                }
+                <p>
+                    @Html.ActionLink("Back to All Restaurants", "Index", "Restaurants")
+                </p>*@
+            </div>
+}
+    

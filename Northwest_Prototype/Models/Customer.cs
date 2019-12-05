@@ -15,7 +15,9 @@ namespace Northwest_Prototype.Models
         [Display(Name = "Customer ID")]
         public int CustomerID { get; set; }
 
-        public virtual Users Users { get; set; }
+        public string UserID { get; set; }
+
+        public virtual Users users { get; set; }
 
         [Required(ErrorMessage = "Please enter First Name")]
         [Display(Name = "First Name")]

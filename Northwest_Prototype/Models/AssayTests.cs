@@ -16,8 +16,10 @@ namespace Northwest_Prototype.Models
         [Key, Column(Order = 1)]
         public int Test2ID { get; set; }
 
+        public string AssayID { get; set; }
         public virtual Assay Assay { get; set; }
 
+        public int TestID { get; set; }
         public virtual Tests Tests { get; set; }
 
         public AssayTests()

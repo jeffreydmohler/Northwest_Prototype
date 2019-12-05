@@ -13,15 +13,16 @@ namespace Northwest_Prototype.Models
         [Key]
         [Required(ErrorMessage = "Please enter Compound Sequence Code")]
         [Display(Name = "Compound Sequence Code")]
-        public int CompoundSequenceCode { get; set; }
+        public string CompoundSequenceCode { get; set; }
 
+        public int LT_Number { get; set; }
         public virtual WorkOrders WorkOrders { get; set; }
 
+        public int TestID { get; set; }
         public virtual Tests Tests { get; set; }
 
+        public int EmployeeID { get; set; }
         public virtual Employee Employee { get; set; }
-
-        public virtual Results Results { get; set; }
 
         [Required(ErrorMessage = "Please indicate if test is required in assay")]
         [Display(Name = "Is this Test required in Assay?")]
@@ -38,7 +39,7 @@ namespace Northwest_Prototype.Models
         public bool RerunNeeded { get; set; }
 
         [Display(Name = "Is this an Additional Test?")]
-        public bool Additional { get; set; }
+        public bool AdditionalTests { get; set; }
 
         [Display(Name = "Has this Test been approved by Customer?")]
         public bool Approved { get; set; }

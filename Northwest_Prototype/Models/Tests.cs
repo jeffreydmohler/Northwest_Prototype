@@ -26,9 +26,13 @@ namespace Northwest_Prototype.Models
         [Display(Name = "Test Description")]
         public string TestDesc { get; set; }
 
+        [Required(ErrorMessage = "Please Enter the Cost for Test")]
+        [Display(Name = "Test Price")]
+        public decimal TestPriceBusi { get; set; }
+
         [Required(ErrorMessage = "Please Enter a Price for Test")]
         [Display(Name = "Test Price")]
-        public decimal TestPrice { get; set; }
+        public decimal TestPriceCust { get; set; }
 
         public virtual ICollection<Assay> Assays { get; set; }
 

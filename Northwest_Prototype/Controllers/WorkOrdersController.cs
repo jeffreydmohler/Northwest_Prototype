@@ -83,8 +83,59 @@ namespace Northwest_Prototype.Controllers
 
         public ActionResult Tests(int iCode)
         {
+            //find the work order object that they clicked on
+            WorkOrders oWorkOrder = db.workOrders.ToList().Find(x => x.LT_Number == iCode);
+
+            //list of all the reviews
+            List<WorkOrders_Tests> lstTests = db.workOrders_Tests.ToList();
+
+            //empty list that will contain all reviews for specific restaurants
+            List<WorkOrders_Tests> specTests = new List<WorkOrders_Tests>();
+
+            for (var iCount = 0; iCount < lstTests.Count; iCount++)
+            {
+                //if the review has same restaurant code as the restaurant clicked on, add that review to specific list
+                if (lstTests[iCount].WorkOrders.LT_Number == oWorkOrder.LT_Number)
+                {
+                    specTests.Add(lstTests[iCount]);
+                }
+            }
+
+            //pass to models to view with tuple.  the restaurant object for summary info, and specific reviews for that restaurant
+            var model = Tuple.Create<WorkOrders, IEnumerable<WorkOrders_Tests>>(oWorkOrder, specTests);
+
+            return View(model);
+        }
+
+        public ActionResult AddTest(int iCode)
+        {
+            
+            ViewBag.Employees = db.employees.ToList();
+            ViewBag.Tests = db.tests.ToList();
+            ViewBag.LT = iCode;
+
             return View();
         }
+
+        [HttpPost]
+        public ActionResult AddTest(WorkOrders_Tests newTest)
+        {
+            if (ModelState.IsValid)
+            {
+                db.workOrders_Tests.Add(newTest);
+                db.SaveChanges();
+
+                return RedirectToAction("Tests", new { iCode = newTest.WorkOrders.LT_Number });
+            }
+            else
+            {
+                ViewBag.Employees = db.employees.ToList();
+                ViewBag.Tests = db.tests.ToList();
+
+                return View(newTest);
+            }
+        }
+
 
         // GET: WorkOrders/Edit/5
         public ActionResult Edit(int? id)
