@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -20,7 +21,7 @@ namespace Northwest_Prototype.Controllers
         public ActionResult Index()
         {
             List<WorkOrders> lstWorkOrders = db.workOrders.ToList();
-            lstWorkOrders.Sort((x, y) => DateTime.Compare(x.DateDue, y.DateDue));
+            //lstWorkOrders.Sort((x, y) => DateTime.Compare(x.DateDue, y.DateDue));
             return View(lstWorkOrders);
         }
 
@@ -46,6 +47,7 @@ namespace Northwest_Prototype.Controllers
             ViewBag.Employees = db.employees.ToList();
             ViewBag.Assays = db.assays.ToList();
             ViewBag.Compounds = db.compounds.ToList();
+            ViewBag.OrderStatus = db.orderStatuses.ToList();
 
             return View();
         }
@@ -55,28 +57,50 @@ namespace Northwest_Prototype.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Customer, LT_Number, DateDue,OrderStatus,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")] WorkOrders workOrders)
+        public ActionResult Create([Bind(Include = "Customer, Assay, Employee, Compound, OrderStatus, LT_Number, DateDue, QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")] WorkOrders workOrders)
         { //[Bind(Include = "WorkOrderID, Customer.CustomerID, DateDue,Status,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")]
-          ///* Customer, Assay, Employee, Compound,
-
-      
-
+            ///* Customer, Assay, Employee, Compound,
             workOrders.Customer = db.customers.Find(workOrders.Customer.CustomerID);
-            //workOrders.Assay = db.assays.Find(workOrders.Assay.AssayID);
-            //workOrders.Employee = db.employees.Find(workOrders.Employee.EmployeeID);
-            //workOrders.Compound = db.compounds.Find(workOrders.Compound.CompoundID);
+            workOrders.Assay = db.assays.Find(workOrders.Assay.AssayID);
+            workOrders.Employee = db.employees.Find(workOrders.Employee.EmployeeID);
+            workOrders.Compound = db.compounds.Find(workOrders.Compound.CompoundID);
+            workOrders.OrderStatus = db.orderStatuses.Find(workOrders.OrderStatus.OrderStatusID);
+
+            ModelState.Remove("Customer.CustFirstName");
+            ModelState.Remove("Customer.CustLastName");
+            ModelState.Remove("Customer.CustAdd1");
+            ModelState.Remove("Customer.CustCity");
+            ModelState.Remove("Customer.CustState");
+            ModelState.Remove("Customer.CustZip");
+            ModelState.Remove("Customer.CustCountry");
+            ModelState.Remove("Customer.CustPhone");
+            ModelState.Remove("Customer.CustEmail");
+            ModelState.Remove("Assay.AssayName");
+            ModelState.Remove("Compound.CompoundDesc");
+            ModelState.Remove("OrderStatus.OrderStatusTitle");
+            ModelState.Remove("OrderStatus.OrderStatusDesc");
+            ModelState.Remove("Employee.EmpFirstName");
+            ModelState.Remove("Employee.EmpLastName");
+            ModelState.Remove("Employee.EmpState");
+            ModelState.Remove("Employee.EmpAddress1");
+            ModelState.Remove("Employee.EmpCity");
+            ModelState.Remove("Employee.EmpZip");
+            ModelState.Remove("Employee.EmpCountry");
+            ModelState.Remove("Employee.EmpPhone");
+            ModelState.Remove("Employee.EmpEmail");
 
             if (ModelState.IsValid)
-            {
-                
+            {  
                 db.workOrders.Add(workOrders);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             ViewBag.Customers = db.customers.ToList();
             ViewBag.Employees = db.employees.ToList();
             ViewBag.Assays = db.assays.ToList();
             ViewBag.Compounds = db.compounds.ToList();
+            ViewBag.OrderStatus = db.orderStatuses.ToList();
 
             return View(workOrders);
         }
@@ -104,6 +128,7 @@ namespace Northwest_Prototype.Controllers
             //pass to models to view with tuple.  the restaurant object for summary info, and specific reviews for that restaurant
             var model = Tuple.Create<WorkOrders, IEnumerable<WorkOrders_Tests>>(oWorkOrder, specTests);
 
+
             return View(model);
         }
 
@@ -118,8 +143,24 @@ namespace Northwest_Prototype.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddTest(WorkOrders_Tests newTest)
+        public ActionResult AddTest([Bind(Include = "Tests, Employee, WorkOrders, CompoundSequenceCode, Required, DateScheduled, DateCompleted, RerunNeeded, AdditionalTests, Approved")] WorkOrders_Tests newTest)
         {
+            newTest.Tests = db.tests.Find(newTest.Tests.TestID);
+            newTest.Employee = db.employees.Find(newTest.Employee.EmployeeID);
+            newTest.WorkOrders = db.workOrders.Find(newTest.WorkOrders.LT_Number);
+
+            ModelState.Remove("Tests.TestName");
+            ModelState.Remove("Tests.TestDesc");
+            ModelState.Remove("Employee.EmpFirstName");
+            ModelState.Remove("Employee.EmpLastName");
+            ModelState.Remove("Employee.EmpState");
+            ModelState.Remove("Employee.EmpAddress1");
+            ModelState.Remove("Employee.EmpCity");
+            ModelState.Remove("Employee.EmpZip");
+            ModelState.Remove("Employee.EmpCountry");
+            ModelState.Remove("Employee.EmpPhone");
+            ModelState.Remove("Employee.EmpEmail");
+
             if (ModelState.IsValid)
             {
                 db.workOrders_Tests.Add(newTest);

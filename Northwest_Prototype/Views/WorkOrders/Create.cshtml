@@ -84,10 +84,10 @@
 
 
     <div class="form-group">
-        @Html.LabelFor(model => model.OrderStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.OrderStatus.OrderStatusID, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.OrderStatus, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.OrderStatus, "", new { @class = "text-danger" })
+            @Html.DropDownListFor(model => model.OrderStatus.OrderStatusID, new SelectList(@ViewBag.OrderStatus, "OrderStatusID", "OrderStatusTitle"))
+            @Html.ValidationMessageFor(model => model.OrderStatus.OrderStatusID, "", new { @class = "text-danger" })
         </div>
     </div>
 

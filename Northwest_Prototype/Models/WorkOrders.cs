@@ -18,6 +18,7 @@ namespace Northwest_Prototype.Models
         public string AssayID { get; set; }
         public virtual Assay Assay { get; set; }
 
+
         public int CustomerID { get; set; }
         public virtual Customer Customer { get; set; }
 
@@ -36,7 +37,8 @@ namespace Northwest_Prototype.Models
 
         [Required(ErrorMessage = "Please enter Status of Work Order")]
         [Display(Name = "Work Order Status")]
-        public int OrderStatus { get; set; }
+        public int OrderStatusID { get; set; }
+        public virtual OrderStatus OrderStatus { get; set; }
 
         [Required(ErrorMessage = "Please enter the Quoted Price")]
         [Display(Name = "Quote Price")]
@@ -61,6 +63,7 @@ namespace Northwest_Prototype.Models
 
         [Display(Name = "Received By")]
         public int ReceivedBy { get; set; }
+        //public virtual Employee receivedBy { get; set; }
 
         [Display(Name = "Compound Weight According to Client")]
         public decimal CompoundWeight_Client { get; set; }

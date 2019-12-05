@@ -79,10 +79,16 @@
             @Html.DisplayFor(modelItem => item.EmpEmail)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmployeeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeID })
-        </td>
+            <button type="button" class="btn btn-secondary">
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID })
+                </button>
+            <button type="button" class="btn btn-secondary">
+                @Html.ActionLink("Details", "Details", new { id = item.EmployeeID })
+            </button>
+            <button type="button" class="btn btn-light">
+                @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
+            </button>
+</td>
     </tr>
 }
 

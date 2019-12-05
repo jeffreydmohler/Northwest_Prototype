@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Northwest_Prototype.Controllers
 {
-    public class AssaysController : Controller
+    public class QuotesController : Controller
     {
         private NorthwestDevContext db = new NorthwestDevContext();
 
@@ -50,15 +50,18 @@ namespace Northwest_Prototype.Controllers
             MyViewModel.EstDayDuration = assay.EstDayDuration;
 
             var MyCheckBoxList = new List<CheckBoxViewModel>();
-       
+            decimal TotalPrice = 0;
             foreach (var item in Results)
             {
-                MyCheckBoxList.Add(new CheckBoxViewModel { Id = item.TestID, Name = item.TestName, Checked = item.Checked});
-                
+                MyCheckBoxList.Add(new CheckBoxViewModel { Id = item.TestID, Name = item.TestName, Checked = item.Checked, Price = item.TestPriceCust });
+                if (item.Checked)
+                {
+                    TotalPrice = TotalPrice + (item.TestPriceCust + (MyViewModel.EstDayDuration * (8 * 40)));
+                }
             }
 
             MyViewModel.Tests = MyCheckBoxList;
-         
+            MyViewModel.TotalPrice = TotalPrice;
             return View(MyViewModel);
         }
 
@@ -105,10 +108,10 @@ namespace Northwest_Prototype.Controllers
                               b.TestName,
 
                               Checked = ((from ab in db.assayToTests
-                                         where (ab.AssayID == id) & (ab.TestID == b.TestID)
-                                         select ab).Count() > 0)
-                            
-           
+                                          where (ab.AssayID == id) & (ab.TestID == b.TestID)
+                                          select ab).Count() > 0)
+
+
                           };
             var MyViewModel = new AssayViewModel();
             MyViewModel.AssayID = id;
@@ -139,26 +142,25 @@ namespace Northwest_Prototype.Controllers
             {
                 var MyAssay = db.assays.Find(assay.AssayID);
 
-               
+
                 MyAssay.AssayName = assay.AssayName;
                 MyAssay.AssayProtocol = assay.AssayProtocol;
                 MyAssay.EstDayDuration = assay.EstDayDuration;
 
                 foreach (var item in db.assayToTests)
                 {
-                    item.AssayID = item.AssayID.TrimEnd();
                     if (item.AssayID == assay.AssayID)
                     {
                         db.Entry(item).State = System.Data.Entity.EntityState.Deleted;
                     }
                 }
 
-                foreach (var item in assay.Tests )
+                foreach (var item in assay.Tests)
                 {
-                    if(item.Checked)
+                    if (item.Checked)
                     {
-                       
-                        db.assayToTests.Add(new AssayToTest() { AssayID = assay.AssayID, TestID = item.Id});
+
+                        db.assayToTests.Add(new AssayToTest() { AssayID = assay.AssayID, TestID = item.Id });
                     }
                 }
                 db.SaveChanges();
@@ -203,3 +205,4 @@ namespace Northwest_Prototype.Controllers
         }
     }
 }
+

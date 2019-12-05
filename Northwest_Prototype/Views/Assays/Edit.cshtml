@@ -1,5 +1,4 @@
-﻿
-@model Northwest_Prototype.ViewModel.TestViewModeModel
+﻿@model Northwest_Prototype.Models.AssayViewModel
 
 @{
     ViewBag.Title = "Edit";
@@ -16,38 +15,49 @@
     <h4>Assay</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.Assay.AssayID)
+    @Html.HiddenFor(model => model.AssayID)
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Assay.AssayName, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.AssayName, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Assay.AssayName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Assay.AssayName, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Assay.AssayProtocol, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Assay.AssayProtocol, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Assay.AssayProtocol, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.AssayName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.AssayName, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Assay.EstDayDuration, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.AssayProtocol, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Assay.EstDayDuration, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Assay.EstDayDuration, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.AssayProtocol, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.AssayProtocol, "", new { @class = "text-danger" })
         </div>
     </div>
+
     <div class="form-group">
-        @Html.LabelFor(model =>model.AllTests, "Tests",  new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.EstDayDuration, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.ListBoxFor(m => m.SelectedTests, Model.AllTests)
-            @Html.ValidationMessageFor(model => model.Assay.EstimatedTime, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.EstDayDuration, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EstDayDuration, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Tests, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @for (int i = 0; i < Model.Tests.Count(); i++)
+            {
+                @Html.EditorFor(m => Model.Tests[i].Checked, new { htmlAttributes = new { @class = "Switch" } })
+           
+                @Html.DisplayFor(m => Model.Tests[i].Name)
+
+                @Html.HiddenFor(m => Model.Tests[i].Name)
+                @Html.HiddenFor(m => Model.Tests[i].Id)
+                <br />
+            }
+        </div>
+    </div>
+
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Save" class="btn btn-default" />
