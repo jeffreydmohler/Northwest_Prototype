@@ -26,5 +26,6 @@ namespace Northwest_Prototype.DAL
         public DbSet<Users> users { get; set; }
         public DbSet<WorkOrders> workOrders { get; set; }
         public DbSet<WorkOrders_Tests> workOrders_Tests { get; set; }
+        public DbSet<OrderStatus> orderStatuses { get; set; }
     }
 }

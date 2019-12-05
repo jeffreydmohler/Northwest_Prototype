@@ -10,7 +10,7 @@ namespace Northwest_Prototype.Models
     {
         [Key]
         [Required]
-        public int OrderStatusCode { get; set; }
+        public int OrderStatusID { get; set; }
 
         [Required]
         public string OrderStatusTitle { get; set; }

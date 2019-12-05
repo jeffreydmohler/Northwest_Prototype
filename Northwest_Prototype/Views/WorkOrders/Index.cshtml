@@ -15,7 +15,6 @@
 <div class="container1" onclick="location.href='@Url.Action("Tests", new { iCode = item.LT_Number })'">
     <span style="font-size:20px; font-weight: bold;">
         @Html.DisplayFor(modelItem => item.Customer.CustFirstName) @Html.DisplayFor(modelItem => item.Customer.CustLastName)
-        Jeffrey Mohler
     </span>
     <span class="col-lg-offset-8">
         @{ var parameter = item.DateDue.ToShortDateString();}
@@ -27,11 +26,11 @@
     </span><br />
     @Html.DisplayNameFor(model => model.Assay.AssayName): @Html.DisplayFor(modelItem => item.Assay.AssayName)
     <span class="col-sm-offset-5">
-        @Html.DisplayNameFor(model => model.OrderStatus): @Html.DisplayFor(modelItem => item.OrderStatus)
+        @Html.DisplayNameFor(model => model.OrderStatusID): @Html.DisplayFor(modelItem => item.OrderStatus.OrderStatusTitle)
     </span><br />
-    @*@Html.DisplayNameFor(model => model.Employee.FName) @Html.DisplayNameFor(model => model.Employee.LName):
-        @Html.DisplayFor(modelItem => item.Employee.FName) @Html.DisplayFor(modelItem => item.Employee.LName)*@
-    Employee: Calen Johnson
+    Employee:
+        @Html.DisplayFor(modelItem => item.Employee.EmpFirstName) @Html.DisplayFor(modelItem => item.Employee.EmpLastName)
+   
     <button class="btn-block" onclick="location.href='@Url.Action("Tests", new { iCode = item.LT_Number })'">View Work Order</button>
 </div>
 }

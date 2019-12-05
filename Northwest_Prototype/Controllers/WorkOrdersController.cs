@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -20,7 +21,7 @@ namespace Northwest_Prototype.Controllers
         public ActionResult Index()
         {
             List<WorkOrders> lstWorkOrders = db.workOrders.ToList();
-            lstWorkOrders.Sort((x, y) => DateTime.Compare(x.DateDue, y.DateDue));
+            //lstWorkOrders.Sort((x, y) => DateTime.Compare(x.DateDue, y.DateDue));
             return View(lstWorkOrders);
         }
 
@@ -46,6 +47,7 @@ namespace Northwest_Prototype.Controllers
             ViewBag.Employees = db.employees.ToList();
             ViewBag.Assays = db.assays.ToList();
             ViewBag.Compounds = db.compounds.ToList();
+            ViewBag.OrderStatus = db.orderStatuses.ToList();
 
             return View();
         }
@@ -55,17 +57,17 @@ namespace Northwest_Prototype.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LT_Number, DateDue,OrderStatus,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")] WorkOrders workOrders)
+        public ActionResult Create([Bind(Include = "LT_Number, Customer.CustomerID, Assay.AssayID, Employee.EmployeeID, Compound.CompoundID, DateDue,OrderStatus.OrderStatusID,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")] WorkOrders workOrders)
         { //[Bind(Include = "WorkOrderID, Customer.CustomerID, DateDue,Status,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")]
             ///* Customer, Assay, Employee, Compound,
-            workOrders.Customer = db.customers.Find(workOrders.Customer.CustomerID);
-            workOrders.Assay = db.assays.Find(workOrders.Assay.AssayID);
-            workOrders.Employee = db.employees.Find(workOrders.Employee.EmployeeID);
-            workOrders.Compound = db.compounds.Find(workOrders.Compound.CompoundID);
+            //workOrders.Customer = db.customers.Find(workOrders.Customer.CustomerID);
+            //workOrders.Assay = db.assays.Find(workOrders.Assay.AssayID);
+            //workOrders.Employee = db.employees.Find(workOrders.Employee.EmployeeID);
+            //workOrders.Compound = db.compounds.Find(workOrders.Compound.CompoundID);
+
 
             if (ModelState.IsValid)
-            {
-                
+            {  
                 db.workOrders.Add(workOrders);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -74,6 +76,7 @@ namespace Northwest_Prototype.Controllers
             ViewBag.Employees = db.employees.ToList();
             ViewBag.Assays = db.assays.ToList();
             ViewBag.Compounds = db.compounds.ToList();
+            ViewBag.OrderStatus = db.orderStatuses.ToList();
 
             return View(workOrders);
         }
@@ -100,6 +103,7 @@ namespace Northwest_Prototype.Controllers
 
             //pass to models to view with tuple.  the restaurant object for summary info, and specific reviews for that restaurant
             var model = Tuple.Create<WorkOrders, IEnumerable<WorkOrders_Tests>>(oWorkOrder, specTests);
+
 
             return View(model);
         }
