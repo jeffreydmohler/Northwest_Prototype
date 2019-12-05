@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Northwest_Prototype.Models.Assay>
+
+@{
+    ViewBag.Title = "Get a Quote";
+}
+
+<h2 class="focus">Get a Quote</h2>
+
+<p>
+</p>
+<table class="table center-block active">
+    <tr>
+        <th>
+            QuoteName
+        </th>
+        <th>
+
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.AssayName)
+            </td>
+
+            <td>
+                <button type="button" class="btn-primary">
+                    @Html.ActionLink("Add Tests", "Edit", new { id = item.AssayID })
+                </button>
+                <button type="button" class="btn-secondary">
+                    @Html.ActionLink("Get a Quote", "Details", new { id = item.AssayID }) 
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>
+
+</table>

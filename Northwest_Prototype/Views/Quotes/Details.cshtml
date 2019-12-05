@@ -1,17 +1,27 @@
-﻿@model Northwest_Prototype.Models.AssayViewModel
-
+﻿
 @{
     ViewBag.Title = "Details";
 }
 
 <h2>Details</h2>
 
+@model Northwest_Prototype.Models.AssayViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Quote Pricing</h2>
+
 <div>
     <h4>Assay</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.AssayName)
+           Quote Name
+        </dt>
+        <dt>
+
         </dt>
 
         <dd>
@@ -19,15 +29,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AssayProtocol)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AssayProtocol)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EstDayDuration)
+           Estimated Duration
         </dt>
 
         <dd>
@@ -41,20 +43,19 @@
         <dd>
             @foreach (var item in Model.Tests)
             {
-                if(item.Checked)
+                if (item.Checked)
                 {
                     <div>@item.Name</div>
-                    <div>@item.Price</div>
                 }
             }
         </dd>
 
     </dl>
-    <div>
-        @Html.DisplayFor(model => model.TotalPrice)
+    <div class="jumbotron">
+      Total price @Html.DisplayFor(model => model.TotalPrice)
     </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AssayID }) |
+    @Html.ActionLink("Edit Quote", "Edit", new { id = Model.AssayID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

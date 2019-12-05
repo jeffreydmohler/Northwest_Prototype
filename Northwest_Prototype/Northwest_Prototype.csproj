@@ -175,6 +175,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PositionsController.cs" />
+    <Compile Include="Controllers\QuotesController.cs" />
     <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Controllers\WorkOrdersController.cs" />
     <Compile Include="DAL\NorthwestDevContext.cs" />
@@ -184,6 +185,9 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Assay.cs" />
     <Compile Include="Models\AssayTests.cs" />
+    <Compile Include="Models\AssayToTest.cs" />
+    <Compile Include="Models\AssayViewModel.cs" />
+    <Compile Include="Models\CheckBoxViewModel.cs" />
     <Compile Include="Models\OrderStatus.cs" />
     <Compile Include="Models\Compound.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -199,7 +203,6 @@
     <Compile Include="Models\WorkOrders_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModel\TestViewMode.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -279,11 +282,6 @@
     <Content Include="Views\Tests\Details.cshtml" />
     <Content Include="Views\Tests\Edit.cshtml" />
     <Content Include="Views\Tests\Index.cshtml" />
-    <Content Include="Views\Assays\Create.cshtml" />
-    <Content Include="Views\Assays\Delete.cshtml" />
-    <Content Include="Views\Assays\Details.cshtml" />
-    <Content Include="Views\Assays\Edit.cshtml" />
-    <Content Include="Views\Assays\Index.cshtml" />
     <Content Include="Views\Positions\Create.cshtml" />
     <Content Include="Views\Positions\Delete.cshtml" />
     <Content Include="Views\Positions\Details.cshtml" />
@@ -307,6 +305,14 @@
     <Content Include="Views\WorkOrders\Tests.cshtml" />
     <Content Include="Views\WorkOrders\Teststest.cshtml" />
     <Content Include="Views\WorkOrders\AddTest.cshtml" />
+    <Content Include="Views\Assays\Create.cshtml" />
+    <Content Include="Views\Assays\Delete.cshtml" />
+    <Content Include="Views\Assays\Details.cshtml" />
+    <Content Include="Views\Assays\Edit.cshtml" />
+    <Content Include="Views\Assays\Index.cshtml" />
+    <Content Include="Views\Quotes\Index.cshtml" />
+    <Content Include="Views\Quotes\Details.cshtml" />
+    <Content Include="Views\Quotes\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

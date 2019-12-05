@@ -7,10 +7,6 @@ namespace Northwest_Prototype.Models
     [Table("Assay")]
     public class Assay
     {
-        public Assay()
-        {
-           this.Tests = new HashSet<Tests>();
-        }
 
         [Key]
         [Required]
@@ -26,7 +22,7 @@ namespace Northwest_Prototype.Models
         [Display(Name = "Estimated Days to Complete Assay")]
         public int EstDayDuration { get; set; }
 
-       
-        public virtual ICollection<Tests> Tests { get; set; }
+        public virtual ICollection<AssayToTest> AssayToTests { get; set; }
+
     }
 }
