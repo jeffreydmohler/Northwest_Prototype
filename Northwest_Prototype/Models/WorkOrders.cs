@@ -14,14 +14,19 @@ namespace Northwest_Prototype.Models
         [Required]
         public int LT_Number { get; set; }
 
+        public string AssayID { get; set; }
         public virtual Assay Assay { get; set; }
 
+        public int CustomerID { get; set; }
         public virtual Customer Customer { get; set; }
 
+        public int CompoundID { get; set; }
         public virtual Compound Compound { get; set; }
 
+        public int EmployeeID { get; set; }
         public virtual Employee Employee { get; set; }
 
+        public int ResultsID { get; set; }
         public virtual Results Results { get; set; }
 
         [Required(ErrorMessage = "Please enter a Due Date")]
@@ -40,10 +45,10 @@ namespace Northwest_Prototype.Models
         public decimal Discount { get; set; }
 
         [Display(Name = "Billed?")]
-        public bool Billed { get; set; }
+        public decimal Billed { get; set; }
 
         [Display(Name = "Paid?")]
-        public bool Paid { get; set; }
+        public decimal Paid { get; set; }
 
         public string Comments { get; set; }
 
@@ -54,7 +59,7 @@ namespace Northwest_Prototype.Models
         public DateTime DateReceived { get; set; }
 
         [Display(Name = "Received By")]
-        public string ReceivedBy { get; set; }
+        public int ReceivedBy { get; set; }
 
         [Display(Name = "Compound Weight According to Client")]
         public decimal CompoundWeight_Client { get; set; }

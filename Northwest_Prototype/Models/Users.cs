@@ -19,6 +19,7 @@ namespace Northwest_Prototype.Models
         [Required(ErrorMessage = "Please enter Password")]
         public string Password { get; set; }
 
+        public int RoleID { get; set; }
         public virtual Roles Roles { get; set; }
 
     }

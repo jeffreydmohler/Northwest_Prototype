@@ -18,7 +18,10 @@
             @Html.DisplayNameFor(model => model.TestDesc)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TestPrice)
+            @Html.DisplayNameFor(model => model.TestPriceBusi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TestPriceCust)
         </th>
         <th></th>
     </tr>
@@ -32,12 +35,15 @@
             @Html.DisplayFor(modelItem => item.TestDesc)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TestPrice)
+            @Html.DisplayFor(modelItem => item.TestPriceBusi)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TestID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TestID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TestID })
+            @Html.DisplayFor(modelItem => item.TestPriceCust)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.TestID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.TestID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.TestID })
         </td>
     </tr>
 }

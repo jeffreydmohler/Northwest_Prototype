@@ -62,7 +62,7 @@
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                               @Html.ActionLink("Assays", "Index", "Assays")
+                            @Html.ActionLink("Assays", "Index", "Assays")
                         </li>
                         <li>
                             @Html.ActionLink("Tests", "Index", "Tests")
@@ -86,6 +86,23 @@
                         </li>
                     </ul>
                 </li>
+                <li class="active">
+                    <a href="#reportsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-home"></i>
+                        Reports
+                    </a>
+                    <ul class="collapse list-unstyled" id="reportsSubmenu">
+                        <li>
+                            @Html.ActionLink("Profitability", "Index", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Employee Performance", "Index", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Lab Performance", "Index", "Home")
+                        </li>
+                    </ul>
+                </li>
                 @if (User.Identity.IsAuthenticated)
                 {
                     if (User.IsInRole("Admin"))
@@ -94,26 +111,23 @@
                         <li class="active">
                             <a href="#Stuff" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                                 <i class="fas fa-home"></i>
-                                Quote
+                                Admin
                             </a>
                             <ul class="collapse list-unstyled" id="Stuff">
                                 <li>
-                                    <a href="#">Home 1</a>
+                                    <a href="#">Manage Employees</a>
                                 </li>
                                 <li>
-                                    <a href="#">Home 2</a>
-                                </li>
-                                <li>
-                                    <a href="#">Home 3</a>
+                                    <a href="#">Manage Users</a>
                                 </li>
                             </ul>
                         </li>
                     }
                 }
-      
 
 
-        </nav>
+
+</nav>
         <div  id="content" class="container body-content">
             @RenderBody()
             <hr />

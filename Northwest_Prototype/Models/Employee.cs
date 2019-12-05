@@ -15,8 +15,10 @@ namespace Northwest_Prototype.Models
         [Display(Name = "Employee ID")]
         public int EmployeeID { get; set; }
 
+        public string UserID { get; set; }
         public virtual Users Users { get; set; }
 
+        public int PositionID { get; set; }
         public virtual Position Position { get; set; }
 
         [Required(ErrorMessage = "Please enter First Name")]
