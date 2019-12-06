@@ -18,8 +18,8 @@
     <div class="form-group">
         @Html.LabelFor(model => model.WorkOrders.LT_Number, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @ViewBag.LT
-            @Html.ValidationMessageFor(model => model.Employee.EmployeeID, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(model => model.WorkOrders.LT_Number, new { @Value = ViewBag.LT })
+            @Html.ValidationMessageFor(model => model.WorkOrders.LT_Number, "", new { @class = "text-danger" })
         </div>
     </div>
 

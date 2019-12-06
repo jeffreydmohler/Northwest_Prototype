@@ -57,19 +57,43 @@ namespace Northwest_Prototype.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LT_Number, Customer.CustomerID, Assay.AssayID, Employee.EmployeeID, Compound.CompoundID, DateDue,OrderStatus.OrderStatusID,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")] WorkOrders workOrders)
+        public ActionResult Create([Bind(Include = "Customer, Assay, Employee, Compound, OrderStatus, LT_Number, DateDue, QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")] WorkOrders workOrders)
         { //[Bind(Include = "WorkOrderID, Customer.CustomerID, DateDue,Status,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")]
             ///* Customer, Assay, Employee, Compound,
-            //workOrders.Customer = db.customers.Find(workOrders.Customer.CustomerID);
-            //workOrders.Assay = db.assays.Find(workOrders.Assay.AssayID);
-            //workOrders.Employee = db.employees.Find(workOrders.Employee.EmployeeID);
-            //workOrders.Compound = db.compounds.Find(workOrders.Compound.CompoundID);
+            workOrders.Customer = db.customers.Find(workOrders.Customer.CustomerID);
+            workOrders.Assay = db.assays.Find(workOrders.Assay.AssayID);
+            workOrders.Employee = db.employees.Find(workOrders.Employee.EmployeeID);
+            workOrders.Compound = db.compounds.Find(workOrders.Compound.CompoundID);
+            workOrders.OrderStatus = db.orderStatuses.Find(workOrders.OrderStatus.OrderStatusID);
 
+            ModelState.Remove("Customer.CustFirstName");
+            ModelState.Remove("Customer.CustLastName");
+            ModelState.Remove("Customer.CustAdd1");
+            ModelState.Remove("Customer.CustCity");
+            ModelState.Remove("Customer.CustState");
+            ModelState.Remove("Customer.CustZip");
+            ModelState.Remove("Customer.CustCountry");
+            ModelState.Remove("Customer.CustPhone");
+            ModelState.Remove("Customer.CustEmail");
+            ModelState.Remove("Assay.AssayName");
+            ModelState.Remove("Compound.CompoundDesc");
+            ModelState.Remove("OrderStatus.OrderStatusTitle");
+            ModelState.Remove("OrderStatus.OrderStatusDesc");
+            ModelState.Remove("Employee.EmpFirstName");
+            ModelState.Remove("Employee.EmpLastName");
+            ModelState.Remove("Employee.EmpState");
+            ModelState.Remove("Employee.EmpAddress1");
+            ModelState.Remove("Employee.EmpCity");
+            ModelState.Remove("Employee.EmpZip");
+            ModelState.Remove("Employee.EmpCountry");
+            ModelState.Remove("Employee.EmpPhone");
+            ModelState.Remove("Employee.EmpEmail");
 
             if (ModelState.IsValid)
             {  
                 db.workOrders.Add(workOrders);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             ViewBag.Customers = db.customers.ToList();
@@ -119,8 +143,24 @@ namespace Northwest_Prototype.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddTest(WorkOrders_Tests newTest)
+        public ActionResult AddTest([Bind(Include = "Tests, Employee, WorkOrders, CompoundSequenceCode, Required, DateScheduled, DateCompleted, RerunNeeded, AdditionalTests, Approved")] WorkOrders_Tests newTest)
         {
+            newTest.Tests = db.tests.Find(newTest.Tests.TestID);
+            newTest.Employee = db.employees.Find(newTest.Employee.EmployeeID);
+            newTest.WorkOrders = db.workOrders.Find(newTest.WorkOrders.LT_Number);
+
+            ModelState.Remove("Tests.TestName");
+            ModelState.Remove("Tests.TestDesc");
+            ModelState.Remove("Employee.EmpFirstName");
+            ModelState.Remove("Employee.EmpLastName");
+            ModelState.Remove("Employee.EmpState");
+            ModelState.Remove("Employee.EmpAddress1");
+            ModelState.Remove("Employee.EmpCity");
+            ModelState.Remove("Employee.EmpZip");
+            ModelState.Remove("Employee.EmpCountry");
+            ModelState.Remove("Employee.EmpPhone");
+            ModelState.Remove("Employee.EmpEmail");
+
             if (ModelState.IsValid)
             {
                 db.workOrders_Tests.Add(newTest);
