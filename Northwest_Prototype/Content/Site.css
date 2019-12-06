@@ -33,8 +33,8 @@
     border-radius: 12px;
     border-color: black;
     border-style: solid;
-    margin-top: 5%;
-    filter: brightness(70%);
+    margin-top: 30px;
+    filter: brightness(80%);
 }
 
 .jumbotron-test-data {
@@ -126,6 +126,15 @@ p {
 .header-color {
     color:white;
 }
+
+.sublinks {
+    color: white;
+
+}
+.sublinks:hover {
+    background-color:transparent;
+}
+
 a,
 a:hover,
 a:focus{
@@ -139,7 +148,7 @@ a:focus{
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1)
 }
 
 .navbar-inverse:hover{
