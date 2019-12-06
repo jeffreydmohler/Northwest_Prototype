@@ -37,6 +37,16 @@
 
 }
 
+.jumbotron-test-data {
+    background-position: center;
+    background-size: cover;
+    border-radius: 12px;
+    border-color: black;
+    border-style: solid;
+    margin-top: 5%;
+    color: black;
+}
+
 .p-shaded-text {
     background: rgba(220,220,220,0.6);
     border-radius: 15px;

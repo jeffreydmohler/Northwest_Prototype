@@ -6,37 +6,37 @@
 }
 
 
-<div id="homejumbo" class="jumbotron">
+<div class="jumbotron jumbotron-test-data">
     <div class="container h-100">
-        <div style="color:#00ffff">
-            <h1>@Html.DisplayFor(model => model.Item1.Customer.CustFirstName) @Html.DisplayFor(model => model.Item1.Customer.CustLastName)</h1>
-            <div style="font-size: 17px; text-align: left">
+        <div>
+            <h1 style="text-decoration: underline">@Html.DisplayFor(model => model.Item1.Customer.CustFirstName) @Html.DisplayFor(model => model.Item1.Customer.CustLastName)</h1>
+            <div style="font-size: 17px; text-align: left; column-count: 3">
                 @{ var parameter = Model.Item1.DateDue.ToShortDateString();}
-                @Html.DisplayNameFor(model => model.Item1.DateDue): @Html.DisplayFor(model => parameter) <br />
-                @Html.DisplayNameFor(model => model.Item1.LT_Number): @Html.DisplayFor(model => model.Item1.LT_Number) <br />
-                @Html.DisplayNameFor(model => model.Item1.Assay.AssayName): @Html.DisplayFor(model => model.Item1.Assay.AssayName)<br />
-                @Html.DisplayNameFor(model => model.Item1.Assay.EstDayDuration): @Html.DisplayFor(model => model.Item1.Assay.EstDayDuration) <br />
-                @Html.DisplayNameFor(model => model.Item1.OrderStatusID): @Html.DisplayFor(model => model.Item1.OrderStatus.OrderStatusDesc) <br />
-                @Html.DisplayNameFor(model => model.Item1.QuotePrice): @Html.DisplayFor(model => model.Item1.QuotePrice)  <br />
-                @Html.DisplayNameFor(model => model.Item1.Discount) @Html.DisplayFor(model => model.Item1.Discount) <br />
-                @Html.DisplayNameFor(model => model.Item1.Billed): @Html.DisplayFor(model => model.Item1.Billed) <br />
-                @Html.DisplayNameFor(model => model.Item1.Paid): @Html.DisplayFor(model => model.Item1.Paid) <br />
-                @Html.DisplayNameFor(model => model.Item1.Comments): @Html.DisplayFor(model => model.Item1.Comments) <br />
-                @Html.DisplayNameFor(model => model.Item1.Quantity): @Html.DisplayFor(model => model.Item1.Quantity)<br />
+                @Html.DisplayNameFor(model => model.Item1.DateDue): <strong>@Html.DisplayFor(model => parameter) </strong><br />
+                @Html.DisplayNameFor(model => model.Item1.LT_Number): <strong> @Html.DisplayFor(model => model.Item1.LT_Number) </strong><br />
+                @Html.DisplayNameFor(model => model.Item1.Assay.AssayName): <strong> @Html.DisplayFor(model => model.Item1.Assay.AssayName)</strong><br />
+                @Html.DisplayNameFor(model => model.Item1.Assay.EstDayDuration): <strong> @Html.DisplayFor(model => model.Item1.Assay.EstDayDuration) </strong><br />
+                @Html.DisplayNameFor(model => model.Item1.OrderStatusID): <strong> @Html.DisplayFor(model => model.Item1.OrderStatus.OrderStatusDesc) </strong><br />
+                @Html.DisplayNameFor(model => model.Item1.QuotePrice): <strong> @Html.DisplayFor(model => model.Item1.QuotePrice)  </strong><br />
+                @Html.DisplayNameFor(model => model.Item1.Discount) : <strong> @Html.DisplayFor(model => model.Item1.Discount) </strong><br />
+                @Html.DisplayNameFor(model => model.Item1.Billed): <strong> @Html.DisplayFor(model => model.Item1.Billed) </strong><br />
+                @Html.DisplayNameFor(model => model.Item1.Paid): <strong> @Html.DisplayFor(model => model.Item1.Paid) </strong><br />
+                @Html.DisplayNameFor(model => model.Item1.Comments): <strong> @Html.DisplayFor(model => model.Item1.Comments) </strong><br />
+                @Html.DisplayNameFor(model => model.Item1.Quantity): <strong> @Html.DisplayFor(model => model.Item1.Quantity)</strong><br />
                 @{ var datereceived = Model.Item1.DateReceived.ToShortDateString();}
-                @Html.DisplayNameFor(model => model.Item1.DateReceived): @Html.DisplayFor(model => datereceived) <br />
-                @Html.DisplayNameFor(model => model.Item1.ReceivedBy): @Html.DisplayFor(model => model.Item1.ReceivedBy) @*@Html.DisplayFor(model => model.Item1.receivedBy.EmpLastName)*@<br />
-                @Html.DisplayNameFor(model => model.Item1.CompoundWeight_Client): @Html.DisplayFor(model => model.Item1.CompoundWeight_Client) <br />
-                @Html.DisplayNameFor(model => model.Item1.CompoundWeight_Actual): @Html.DisplayFor(model => model.Item1.CompoundWeight_Actual) <br />
-                @Html.DisplayNameFor(model => model.Item1.CompoundMass): @Html.DisplayFor(model => model.Item1.CompoundMass) <br />
+                @Html.DisplayNameFor(model => model.Item1.DateReceived): <strong> @Html.DisplayFor(model => datereceived) </strong><br />
+                @Html.DisplayNameFor(model => model.Item1.ReceivedBy): <strong> @Html.DisplayFor(model => model.Item1.ReceivedBy) @*@Html.DisplayFor(model => model.Item1.receivedBy.EmpLastName)*@</strong><br />
+                @Html.DisplayNameFor(model => model.Item1.CompoundWeight_Client): <strong> @Html.DisplayFor(model => model.Item1.CompoundWeight_Client) </strong><br />
+                @Html.DisplayNameFor(model => model.Item1.CompoundWeight_Actual): <strong> @Html.DisplayFor(model => model.Item1.CompoundWeight_Actual) </strong><br />
+                @Html.DisplayNameFor(model => model.Item1.CompoundMass): <strong> @Html.DisplayFor(model => model.Item1.CompoundMass) </strong><br />
                 @{ var dateconfirmation = Model.Item1.DateTimeConfirmation.ToShortDateString();}
-                @Html.DisplayNameFor(model => model.Item1.DateTimeConfirmation): @Html.DisplayFor(model => dateconfirmation)<br />
-                @Html.DisplayNameFor(model => model.Item1.MTD): @Html.DisplayFor(model => model.Item1.MTD)<br />
-                @Html.DisplayNameFor(model => model.Item1.Results.QualResult): @Html.DisplayFor(model => model.Item1.Results.QualResult)<br />
-                @Html.DisplayNameFor(model => model.Item1.Results.QuantResultRaw): @Html.DisplayFor(model => model.Item1.Results.QuantResultRaw)<br />
-                @Html.DisplayNameFor(model => model.Item1.Results.QuantResultSum): @Html.DisplayFor(model => model.Item1.Results.QuantResultSum)<br />
-                @Html.DisplayNameFor(model => model.Item1.Compound.CompoundDesc): @Html.DisplayFor(model => model.Item1.Compound.CompoundDesc)<br />
-                Employee: @Html.DisplayFor(model => model.Item1.Employee.EmpFirstName) @Html.DisplayFor(model => model.Item1.Employee.EmpLastName)<br />
+                @Html.DisplayNameFor(model => model.Item1.DateTimeConfirmation): <strong> @Html.DisplayFor(model => dateconfirmation)</strong><br />
+                @Html.DisplayNameFor(model => model.Item1.MTD): <strong> @Html.DisplayFor(model => model.Item1.MTD)</strong><br />
+                @Html.DisplayNameFor(model => model.Item1.Results.QualResult): <strong> @Html.DisplayFor(model => model.Item1.Results.QualResult)</strong><br />
+                @Html.DisplayNameFor(model => model.Item1.Results.QuantResultRaw): <strong> @Html.DisplayFor(model => model.Item1.Results.QuantResultRaw)</strong><br />
+                @Html.DisplayNameFor(model => model.Item1.Results.QuantResultSum): <strong> @Html.DisplayFor(model => model.Item1.Results.QuantResultSum)</strong><br />
+                @Html.DisplayNameFor(model => model.Item1.Compound.CompoundDesc): <strong> @Html.DisplayFor(model => model.Item1.Compound.CompoundDesc)</strong><br />
+                Employee: <strong> @Html.DisplayFor(model => model.Item1.Employee.EmpFirstName) @Html.DisplayFor(model => model.Item1.Employee.EmpLastName)</strong><br />
             </div>
         </div>
     </div>
