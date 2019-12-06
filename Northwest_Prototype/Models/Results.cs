@@ -13,10 +13,13 @@ namespace Northwest_Prototype.Models
         [Key]
         public int ResultsID { get; set; }
 
+        [Display(Name = "Raw Quantitative Results")]
         public string QuantResultRaw { get; set; }
 
+        [Display(Name = "Summary Quantitative Results")]
         public string QuantResultSum { get; set; }
 
+        [Display(Name = "Qualitative Results")]
         public string QualResult { get; set; }
     }
 }

@@ -4,11 +4,27 @@
     ViewBag.Title = "Get a Quote";
 }
 
-<h2 class="focus">Get a Quote</h2>
+<div id="quotejumbo" class="jumbotron-main-image " style="background-image: url('../../Content/Pictures/chemistry beaker with drop.jpg');">
 
-<p>
-</p>
-<table class="table center-block active">
+    <br />
+    <br />
+    <h1> &nbsp; Get a quote</h1>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
+
+<table class="table table-striped">
     <tr>
         <th>
             QuoteName
@@ -28,11 +44,11 @@
             </td>
 
             <td>
-                <button type="button" class="btn-primary">
+                <button type="button" class="btn-secondary">
                     @Html.ActionLink("Add Tests", "Edit", new { id = item.AssayID })
                 </button>
                 <button type="button" class="btn-secondary">
-                    @Html.ActionLink("Get a Quote", "Details", new { id = item.AssayID }) 
+                    @Html.ActionLink("Get a Quote", "Details", new { id = item.AssayID })
                 </button>
             </td>
         </tr>

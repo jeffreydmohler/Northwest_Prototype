@@ -4,34 +4,61 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Work Orders</h2>
 
-<p>
-    @Html.ActionLink("Create New Work Order", "Create", "WorkOrders", new { @class = "btn btn-default" })
-</p>
+<div id="restjumbo" class="jumbotron-main-image ">
+
+    <br />
+    <br />
+    <h1> &nbsp; Work Orders</h1>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+</div>
+
+
 
 @foreach (var item in Model)
 {
-<div class="container1" onclick="location.href='@Url.Action("Tests", new { iCode = item.LT_Number })'">
-    <span style="font-size:20px; font-weight: bold;">
-        @Html.DisplayFor(modelItem => item.Customer.CustFirstName) @Html.DisplayFor(modelItem => item.Customer.CustLastName)
-    </span>
-    <span class="col-lg-offset-8">
-        @{ var parameter = item.DateDue.ToShortDateString();}
-        @Html.DisplayNameFor(model => model.DateDue): @Html.DisplayFor(modelItem => parameter)
-    </span><br />
-    @Html.DisplayNameFor(model => model.LT_Number): @Html.DisplayFor(modelItem => item.LT_Number)
-   <span class="col-lg-offset-7">
-    @Html.DisplayNameFor(model => model.QuotePrice): $@Html.DisplayFor(modelItem => item.QuotePrice)
-    </span><br />
-    @Html.DisplayNameFor(model => model.Assay.AssayName): @Html.DisplayFor(modelItem => item.Assay.AssayName)
-    <span class="col-sm-offset-5">
-        @Html.DisplayNameFor(model => model.OrderStatusID): @Html.DisplayFor(modelItem => item.OrderStatus.OrderStatusTitle)
-    </span><br />
-    Employee:
+    <div class="container1" onclick="location.href='@Url.Action("Tests", new { iCode = item.LT_Number })'">
+        <span style="font-size:20px; font-weight: bold;">
+            @Html.DisplayFor(modelItem => item.Customer.CustFirstName) @Html.DisplayFor(modelItem => item.Customer.CustLastName)
+        </span>
+        <span class="col-lg-offset-8">
+            @{ var parameter = item.DateDue.ToShortDateString();}
+            @Html.DisplayNameFor(model => model.DateDue): @Html.DisplayFor(modelItem => parameter)
+        </span><br />
+        @Html.DisplayNameFor(model => model.LT_Number): @Html.DisplayFor(modelItem => item.LT_Number)
+        <span class="col-lg-offset-7">
+            @Html.DisplayNameFor(model => model.QuotePrice): $@Html.DisplayFor(modelItem => item.QuotePrice)
+        </span><br />
+        @Html.DisplayNameFor(model => model.Assay.AssayName): @Html.DisplayFor(modelItem => item.Assay.AssayName)
+        <span class="col-sm-offset-5">
+            @Html.DisplayNameFor(model => model.OrderStatusID): @Html.DisplayFor(modelItem => item.OrderStatus.OrderStatusTitle)
+        </span><br />
+        Employee:
         @Html.DisplayFor(modelItem => item.Employee.EmpFirstName) @Html.DisplayFor(modelItem => item.Employee.EmpLastName)
-   
-    <button class="btn-block" onclick="location.href='@Url.Action("Tests", new { iCode = item.LT_Number })'">View Work Order</button>
-</div>
+
+        <button class="btn-block" onclick="location.href='@Url.Action("Tests", new { iCode = item.LT_Number })'">View Work Order</button>
+    </div>
+
+ 
 }
 
+<button class="btn-block">@Html.ActionLink("Create New", "Create")</button>
