@@ -149,17 +149,17 @@ namespace Northwest_Prototype.Controllers
             newTest.Employee = db.employees.Find(newTest.Employee.EmployeeID);
             newTest.WorkOrders = db.workOrders.Find(newTest.WorkOrders.LT_Number);
 
-            //ModelState.Remove("Tests.TestName");
-            //ModelState.Remove("Tests.TestDesc");
-            //ModelState.Remove("Employee.EmpFirstName");
-            //ModelState.Remove("Employee.EmpLastName");
-            //ModelState.Remove("Employee.EmpState");
-            //ModelState.Remove("Employee.EmpAddress1");
-            //ModelState.Remove("Employee.EmpCity");
-            //ModelState.Remove("Employee.EmpZip");
-            //ModelState.Remove("Employee.EmpCountry");
-            //ModelState.Remove("Employee.EmpPhone");
-            //ModelState.Remove("Employee.EmpEmail");
+            ModelState.Remove("Tests.TestName");
+            ModelState.Remove("Tests.TestDesc");
+            ModelState.Remove("Employee.EmpFirstName");
+            ModelState.Remove("Employee.EmpLastName");
+            ModelState.Remove("Employee.EmpState");
+            ModelState.Remove("Employee.EmpAddress1");
+            ModelState.Remove("Employee.EmpCity");
+            ModelState.Remove("Employee.EmpZip");
+            ModelState.Remove("Employee.EmpCountry");
+            ModelState.Remove("Employee.EmpPhone");
+            ModelState.Remove("Employee.EmpEmail");
 
             if (ModelState.IsValid)
             {
@@ -238,6 +238,66 @@ namespace Northwest_Prototype.Controllers
         public ActionResult Quote()
         {
             return View();
+        }
+
+        
+        public ActionResult EditTest(int? iCode)
+        {
+            ViewBag.Employees = db.employees.ToList();
+            ViewBag.Tests = db.tests.ToList();
+            
+
+            if (iCode == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            WorkOrders_Tests oTest = db.workOrders_Tests.Find(iCode);
+            if (oTest == null)
+            {
+                return HttpNotFound();
+            }
+            return View(oTest);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditTest([Bind(Include = "Tests, Employee, WorkOrders, CompoundSequenceCode, Required, DateScheduled, DateCompleted, RerunNeeded, AdditionalTests, Approved")] WorkOrders_Tests oTest)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(oTest).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Tests", new { iCode = oTest.LT_Number });
+            }
+            return View(oTest);
+        }
+
+
+        // GET: Clients/Delete/5
+        
+        public ActionResult DeleteTest(int? iCode)
+        {
+            if (iCode == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            WorkOrders_Tests oTest = db.workOrders_Tests.Find(iCode);
+            if (oTest == null)
+            {
+                return HttpNotFound();
+            }
+            return View(oTest);
+        }
+
+        // POST: Clients/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteTest(int iCode)
+        {
+            WorkOrders_Tests oTest = db.workOrders_Tests.Find(iCode);
+            db.workOrders_Tests.Remove(oTest);
+            db.SaveChanges();
+            return RedirectToAction("Tests", new { iCode = oTest.LT_Number });
         }
 
         protected override void Dispose(bool disposing)
