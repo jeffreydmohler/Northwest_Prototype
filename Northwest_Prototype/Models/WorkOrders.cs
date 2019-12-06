@@ -13,6 +13,7 @@ namespace Northwest_Prototype.Models
         [Key]
         [Required]
         [Display(Name = "LT Number")]
+        [Range(000001, 999999, ErrorMessage = "LT Number must be 6 digits.")]
         public int LT_Number { get; set; }
 
         public string AssayID { get; set; }

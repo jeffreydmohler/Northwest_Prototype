@@ -44,7 +44,7 @@ namespace Northwest_Prototype.Models
         [Required(ErrorMessage = "Please enter Zip")]
         public string CustZip { get; set; }
 
-        [Required(ErrorMessage = "Please enter Zip")]
+        [Required(ErrorMessage = "Please enter Country")]
         public string CustCountry { get; set; }
 
         [Required(ErrorMessage = "Please enter Phone Number")]
