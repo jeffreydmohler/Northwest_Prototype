@@ -1,6 +1,5 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -23,6 +22,42 @@
         float: right;
         margin-right: 20px;
     }
+
+.containerheader{
+    padding:inherit,25px,inherit,25px;
+}
+
+.jumbotron-main-image {
+    background-position: center;
+    background-size: cover;
+    border-radius: 12px;
+    border-color: black;
+    border-style: solid;
+    margin-top: 5%;
+    filter: brightness(70%);
+}
+
+.jumbotron-test-data {
+    background-position: center;
+    background-size: cover;
+    border-radius: 12px;
+    border-color: black;
+    border-style: solid;
+    margin-top: 5%;
+    color: black;
+    padding: 16px;
+    padding-left: 16px;
+}
+
+.p-shaded-text {
+    background: rgba(220,220,220,0.6);
+    border-radius: 15px;
+    padding: 12px;
+}
+
+.link-heavy{
+    font-size: 32px;
+}
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -85,24 +120,30 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
-}
+    color: black;
 
+}
+.header-color {
+    color:white;
+}
 a,
 a:hover,
-a:focus {
-    color: inherit;
+a:focus{
     text-decoration: none;
     transition: all 0.3s;
 }
 
 .navbar {
     padding: 15px 10px;
-    background: #fff;
+    background: #20639B ;
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-inverse:hover{
+    color:black;
 }
 
 .navbar-btn {
