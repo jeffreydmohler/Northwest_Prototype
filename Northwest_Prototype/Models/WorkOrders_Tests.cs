@@ -25,7 +25,7 @@ namespace Northwest_Prototype.Models
         public virtual Employee Employee { get; set; }
 
         [Required(ErrorMessage = "Please indicate if test is required in assay")]
-        [Display(Name = "Test required in Assay?")]
+        [Display(Name = "Test Required in Assay?")]
         public bool Required { get; set; }
 
         [Required(ErrorMessage = "Please enter a scheduled date for test")]

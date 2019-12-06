@@ -57,7 +57,7 @@ namespace Northwest_Prototype.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Customer, Assay, Employee, Compound, OrderStatus, LT_Number, DateDue, QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")] WorkOrders workOrders)
+        public ActionResult Create([Bind(Include = "Customer, Assay, Employee, Compound, OrderStatus, DateDue, QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")] WorkOrders workOrders)
         { //[Bind(Include = "WorkOrderID, Customer.CustomerID, DateDue,Status,QuotePrice,Discount,Billed,Paid,Comments,Quantity,DateReceived,ReceivedBy,CompoundWeight_Client,CompoundWeight_Actual,CompoundMass,DateTimeConfirmation,MTD")]
             ///* Customer, Assay, Employee, Compound,
             workOrders.Customer = db.customers.Find(workOrders.Customer.CustomerID);
@@ -65,6 +65,7 @@ namespace Northwest_Prototype.Controllers
             workOrders.Employee = db.employees.Find(workOrders.Employee.EmployeeID);
             workOrders.Compound = db.compounds.Find(workOrders.Compound.CompoundID);
             workOrders.OrderStatus = db.orderStatuses.Find(workOrders.OrderStatus.OrderStatusID);
+            workOrders.ResultsID = 3;
 
             ModelState.Remove("Customer.CustFirstName");
             ModelState.Remove("Customer.CustLastName");

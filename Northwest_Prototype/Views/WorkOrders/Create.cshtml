@@ -34,7 +34,7 @@
     @Html.HiddenFor(model => model.Customer.CustZip)
 
 
-    <div class="form-group">
+    <div class="form-group" hidden>
         @Html.LabelFor(model => model.LT_Number, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.HiddenFor(model => model.LT_Number, new { htmlAttributes = new { @class = "form-control" } })
