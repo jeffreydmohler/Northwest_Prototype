@@ -36,6 +36,25 @@
     margin-top: 30px;
     filter: brightness(80%);
 }
+#restjumbo {
+    background-image: url('Pictures/Microscope.jpg');
+    filter: brightness(100%);
+    background-position: left;
+}
+
+#assayjumbo {
+    background-image: url('Pictures/laboratory.jpg');
+    filter: brightness(90%);
+}
+
+#quotejumbo {
+    background-image: url('Pictures/hand holding beaker.jpeg');
+    filter: brightness(90%);
+}
+#customerjumbo {
+    background-image: url('Pictures/blue building.jpg');
+    filter: brightness(90%);
+}
 
 .jumbotron-test-data {
     background-position: center;
@@ -54,7 +73,9 @@
     border-radius: 15px;
     padding: 12px;
 }
-
+#p-shaded {
+   background-color: white
+}
 .link-heavy{
     font-size: 32px;
 }
