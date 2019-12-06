@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<Northwest_Prototype.Models.Customer>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Customer List";
 }
 
-<h2>Index</h2>
+<h2>Customer List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", "Customer", new { @class = "btn btn-default" })
 </p>
-<table class="table">
+<table class="table table-hover table-bordered table-condensed table-responsive">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.CustFirstName)
@@ -116,12 +116,12 @@
             @Html.DisplayFor(modelItem => item.CustBillCountry)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CustBillZip)
+            @Html.DisplayFor(modelItem => item.CustCreditCard)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CustomerID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CustomerID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CustomerID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.CustomerID }, new { @class = "btn btn-default" })
+            @Html.ActionLink("Details", "Details", new { id=item.CustomerID }, new { @class = "btn btn-default" })
+            @Html.ActionLink("Delete", "Delete", new { id=item.CustomerID }, new { @class = "btn btn-default" })
         </td>
     </tr>
 }

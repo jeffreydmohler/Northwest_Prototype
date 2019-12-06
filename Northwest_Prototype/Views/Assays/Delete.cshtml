@@ -1,12 +1,12 @@
 ﻿@model Northwest_Prototype.Models.Assay
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Delete Assay";
 }
 
 <h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Are you sure you want to delete this Assay?</h3>
 <div>
     <h4>Assay</h4>
     <hr />
@@ -41,8 +41,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete Assay" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-default" })
         </div>
     }
 </div>
