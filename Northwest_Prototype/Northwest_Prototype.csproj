@@ -277,11 +277,6 @@
     <Content Include="Views\WorkOrders\Edit.cshtml" />
     <Content Include="Views\WorkOrders\Index.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\Tests\Create.cshtml" />
-    <Content Include="Views\Tests\Delete.cshtml" />
-    <Content Include="Views\Tests\Details.cshtml" />
-    <Content Include="Views\Tests\Edit.cshtml" />
-    <Content Include="Views\Tests\Index.cshtml" />
     <Content Include="Views\Positions\Create.cshtml" />
     <Content Include="Views\Positions\Delete.cshtml" />
     <Content Include="Views\Positions\Details.cshtml" />
@@ -313,6 +308,11 @@
     <Content Include="Views\Quotes\Index.cshtml" />
     <Content Include="Views\Quotes\Details.cshtml" />
     <Content Include="Views\Quotes\Edit.cshtml" />
+    <Content Include="Views\Tests\Create.cshtml" />
+    <Content Include="Views\Tests\Delete.cshtml" />
+    <Content Include="Views\Tests\Details.cshtml" />
+    <Content Include="Views\Tests\Edit.cshtml" />
+    <Content Include="Views\Tests\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

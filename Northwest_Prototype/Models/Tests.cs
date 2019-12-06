@@ -24,11 +24,11 @@ namespace Northwest_Prototype.Models
         public string TestDesc { get; set; }
 
         [Required(ErrorMessage = "Please Enter the Cost for Test")]
-        [Display(Name = "Test Price")]
+        [Display(Name = "Test Buisness Price")]
         public decimal TestPriceBusi { get; set; }
 
         [Required(ErrorMessage = "Please Enter a Price for Test")]
-        [Display(Name = "Test Price")]
+        [Display(Name = "Test Customer Price")]
         public decimal TestPriceCust { get; set; }
 
         public virtual ICollection<AssayToTest> AssayToTests { get; set; }

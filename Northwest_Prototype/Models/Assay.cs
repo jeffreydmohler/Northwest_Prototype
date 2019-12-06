@@ -10,6 +10,7 @@ namespace Northwest_Prototype.Models
 
         [Key]
         [Required]
+        [StringLength(6, ErrorMessage = "Must be shorter then 6 characters")]
         public string AssayID { get; set; }
 
         [Required(ErrorMessage = "Please enter a Assay Name")]

@@ -47,7 +47,7 @@ namespace Northwest_Prototype.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TestID,TestName,TestDesc,TestPrice")] Tests tests)
+        public ActionResult Create([Bind(Include = "TestID,TestName,TestDesc,TestPriceBusi,TestPriceCust")] Tests tests)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Northwest_Prototype.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TestID,TestName,TestDesc,TestPrice")] Tests tests)
+        public ActionResult Edit([Bind(Include = "TestID,TestName,TestDesc,TestPriceBusi,TestPriceCust")] Tests tests)
         {
             if (ModelState.IsValid)
             {

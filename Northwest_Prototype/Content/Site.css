@@ -33,7 +33,7 @@
     border-radius: 12px;
     border-color: black;
     border-style: solid;
-    margin-top: 5%;
+    margin-top: 30px;
 
 }
 
@@ -121,7 +121,7 @@ p {
     color: black;
 
 }
-a {
+.sublinks {
     color:white;
 }
 a,
@@ -135,9 +135,11 @@ a:focus{
     padding: 15px 10px;
     background: #20639B ;
     border: none;
+    color:white;
     border-radius: 0;
     margin-bottom: 40px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1)
+    
 }
 
 .navbar-inverse:hover{
@@ -175,7 +177,7 @@ span {
     min-width: 250px;
     max-width: 250px;
     background: #49494b;
-    color: #fff;
+    color: white;
     transition: all 0.3s;
 }
 
@@ -218,6 +220,7 @@ span {
     #sidebar.active .dropdown-toggle::after {
         top: auto;
         bottom: 10px;
+        color: white;
         right: 50%;
         -webkit-transform: translateX(50%);
         -ms-transform: translateX(50%);
@@ -237,6 +240,7 @@ span {
     #sidebar ul.components {
         padding: 20px 0;
         padding-top: 0px;
+        color: white;
         /*border-bottom: 1px solid #47748b;*/
     }
 
@@ -261,6 +265,7 @@ a[data-toggle="collapse"] {
 
 .dropdown-toggle::after {
     display: block;
+    color: white
     position: absolute;
     top: 50%;
     right: 20px;

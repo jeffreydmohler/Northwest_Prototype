@@ -21,11 +21,11 @@
                 
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Northwest Labs", "Index", "Home", new { area = "" }, new { @class = "navbar-brand link-heavy" })</li>
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <ul class="nav navbar-nav" style="color:white">
+                    <li>@Html.ActionLink("Northwest Labs", "Index", "Home", new { area = "" }, new { @class = "navbar-brand link-heavy " })</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { @class = "sublinks" })</li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { @class = "sublinks" })</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { @class = "sublinks" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -41,67 +41,67 @@
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color:white">
                         <i class="fas fa-copy"></i>
                         Work Orders
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            @Html.ActionLink("View Work Orders", "Index", "WorkOrders")
+                            @Html.ActionLink("View Work Orders", "Index", "WorkOrders", new { @class = "sublinks" })
                         </li>
                         <li>
-                            @Html.ActionLink("Create Work Orders", "Create", "WorkOrders")
+                            @Html.ActionLink("Create Work Orders", "Create", "WorkOrders", new { @class = "sublinks" })
                         </li>
                         <li>
-                            @Html.ActionLink("Provide a Quote", "Index", "Quotes")
+                            @Html.ActionLink("Provide a Quote", "Index", "Quotes", new { @class = "sublinks" })
                         </li>
                     </ul>
                 </li>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color:white">
                         <i class="fas fa-home"></i>
                         Catalogs
                     </a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <ul class="collapse list-unstyled" id="homeSubmenu" style="color:white">
                         <li>
-                            @Html.ActionLink("Assays", "Index", "Assays")
+                            @Html.ActionLink("Assays", "Index", "Assays", new { @class = "sublinks" })
                         </li>
                         <li>
-                            @Html.ActionLink("Tests", "Index", "Tests")
+                            @Html.ActionLink("Tests", "Index", "Tests", new { @class = "sublinks" })
                         </li>
                         <li>
-                            @Html.ActionLink("Compounds", "Index", "Compounds")
+                            @Html.ActionLink("Compounds", "Index", "Compounds", new { @class = "sublinks" })
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#CustomersSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <a href="#CustomersSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color:white">
                         <i class="fas fa-copy"></i>
                         Customers
                     </a>
-                    <ul class="collapse list-unstyled" id="CustomersSubmenu">
+                    <ul class="collapse list-unstyled" id="CustomersSubmenu" style="color:white">
                         <li>
-                            @Html.ActionLink("View Customers", "Index", "Customers")
+                            @Html.ActionLink("View Customers", "Index", "Customers", new { @class = "sublinks" })
                         </li>
                         <li>
-                            @Html.ActionLink("Add a Customer", "Create", "Customers")
+                            @Html.ActionLink("Add a Customer", "Create", "Customers", new { @class = "sublinks" })
                         </li>
                     </ul>
                 </li>
                 <li class="active">
-                    <a href="#reportsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <a href="#reportsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color:white">
                         <i class="fas fa-home"></i>
                         Reports
                     </a>
-                    <ul class="collapse list-unstyled" id="reportsSubmenu">
+                    <ul class="collapse list-unstyled" id="reportsSubmenu" style="color:white">
                         <li>
-                            @Html.ActionLink("Profitability", "Index", "Home")
+                            @Html.ActionLink("Profitability", "Index", "Home", new { @class = "sublinks" })
                         </li>
                         <li>
-                            @Html.ActionLink("Employee Performance", "Index", "Home")
+                            @Html.ActionLink("Employee Performance", "Index", "Home", new { @class = "sublinks" })
                         </li>
                         <li>
-                            @Html.ActionLink("Lab Performance", "Index", "Home")
+                            @Html.ActionLink("Lab Performance", "Index", "Home", new { @class = "sublinks" })
                         </li>
                     </ul>
                 </li>
@@ -127,7 +127,7 @@
                     }
                 }
 
-
+                </ul>
 
 </nav>
         <div  id="content" class="container body-content">

@@ -1424,6 +1424,7 @@ ol ol {
   margin-bottom: 0;
 }
 .list-unstyled {
+    color:white
   padding-left: 0;
   list-style: none;
 }
@@ -4277,6 +4278,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   float: left;
   height: 50px;
   padding: 15px 15px;
+  color:white;
   font-size: 18px;
   line-height: 20px;
 }

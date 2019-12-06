@@ -149,17 +149,17 @@ namespace Northwest_Prototype.Controllers
             newTest.Employee = db.employees.Find(newTest.Employee.EmployeeID);
             newTest.WorkOrders = db.workOrders.Find(newTest.WorkOrders.LT_Number);
 
-            ModelState.Remove("Tests.TestName");
-            ModelState.Remove("Tests.TestDesc");
-            ModelState.Remove("Employee.EmpFirstName");
-            ModelState.Remove("Employee.EmpLastName");
-            ModelState.Remove("Employee.EmpState");
-            ModelState.Remove("Employee.EmpAddress1");
-            ModelState.Remove("Employee.EmpCity");
-            ModelState.Remove("Employee.EmpZip");
-            ModelState.Remove("Employee.EmpCountry");
-            ModelState.Remove("Employee.EmpPhone");
-            ModelState.Remove("Employee.EmpEmail");
+            //ModelState.Remove("Tests.TestName");
+            //ModelState.Remove("Tests.TestDesc");
+            //ModelState.Remove("Employee.EmpFirstName");
+            //ModelState.Remove("Employee.EmpLastName");
+            //ModelState.Remove("Employee.EmpState");
+            //ModelState.Remove("Employee.EmpAddress1");
+            //ModelState.Remove("Employee.EmpCity");
+            //ModelState.Remove("Employee.EmpZip");
+            //ModelState.Remove("Employee.EmpCountry");
+            //ModelState.Remove("Employee.EmpPhone");
+            //ModelState.Remove("Employee.EmpEmail");
 
             if (ModelState.IsValid)
             {
