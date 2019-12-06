@@ -34,7 +34,7 @@
     border-color: black;
     border-style: solid;
     margin-top: 5%;
-
+    filter: brightness(70%);
 }
 
 .jumbotron-test-data {
@@ -45,6 +45,8 @@
     border-style: solid;
     margin-top: 5%;
     color: black;
+    padding: 16px;
+    padding-left: 16px;
 }
 
 .p-shaded-text {
@@ -121,7 +123,7 @@ p {
     color: black;
 
 }
-a {
+.header-color {
     color:white;
 }
 a,
