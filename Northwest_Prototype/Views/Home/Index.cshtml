@@ -7,7 +7,7 @@
     <h1>Northwest Labs</h1>
     <br />
     <br />
-    <p class="lead p-shaded-text" >
+    <p class="lead p-shaded-text">
         Here at Northwest Labs, we aim to give the best of Assay analysis.
     </p>
     <p><a class="btn btn-primary btn-lg" @Html.ActionLink("Learn More", "About", "Home")</a></p>
@@ -24,27 +24,26 @@
     <br />
     <br />
     <br />
-
-
-
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Work Orders</h2>
-        <p>
-           See work orders that need to be finished
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="row">
+        <div class="col-md-4 text-center header-color">
+            <h2>Work Orders</h2>
+            <p style="color:white">See work orders that need to be finished</p>
+            <p>@Html.ActionLink("View Work Orders", "Index", "WorkOrders", null, new { @class = "btn btn-default" })</p>
+        </div>
+        <div class="col-md-4 text-center header-color">
+            <h2>Quotes</h2>
+            <p style="color:white">Qet a quick quote for an Assay</p>
+            <p>@Html.ActionLink("Receive a Quote", "Index", "WorkOrders", null, new { @class = "btn btn-default" })</p>
+        </div>
+        <div class="col-md-4 text-center header-color">
+            <h2>&nbsp;&nbsp;Catalog</h2>
+            <p style="color:white">View Tests, Assays, and Protocols in the Catalog</p>
+            <p>@Html.ActionLink("View Catalog", "Index", "WorkOrders", null, new { @class = "btn btn-default" })</p>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Provide a Quote</h2>
-        <p>Get a quick quote for an assay</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Catalogs</h2>
-        <p>View Tests, Assays, Protocols and more through the test catalog</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+
+
+
+
+
 </div>
