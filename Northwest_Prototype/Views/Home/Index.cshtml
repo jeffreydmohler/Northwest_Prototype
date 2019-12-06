@@ -7,7 +7,7 @@
     <h1>Northwest Labs</h1>
     <br />
     <br />
-    <p class="lead p-shaded-text" >
+    <p class="lead p-shaded-text">
         Here at Northwest Labs, we aim to give the best of Assay analysis.
     </p>
     <p><a class="btn btn-primary btn-lg" @Html.ActionLink("Learn More", "About", "Home")</a></p>
@@ -15,6 +15,17 @@
     <br />
     <br />
     <br />
+    <div class="row">
+        <div class="col-md-4">
+            <p>@Html.ActionLink("View Work Orders", "Index", "WorkOrders", null, new { @class = "btn btn-default" })</p>
+        </div>
+        <div class="col-md-4">
+            <p>@Html.ActionLink("Receive a Quote", "Index", "WorkOrders", null, new { @class = "btn btn-default" })</p>
+        </div>
+        <div class="col-md-4">
+            <p>@Html.ActionLink("View Catalog", "Index", "WorkOrders", null, new { @class = "btn btn-default" })</p>
+        </div>
+    </div>
     <br />
     <br />
     <br />
